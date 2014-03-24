@@ -4,6 +4,7 @@
 
 `Woodstock` or whatever the name's gonna be is a web application created to 
 represent, analyse mathematical model of biological process.
+Woodstock's best friend [Snoopy](http://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Snoopy) is a software tool to design and animate graphs based on the Petri Nets theory.
 
 ### Process
 
@@ -38,4 +39,3 @@ Other contenders:
 - [XUL Runner](https://developer.mozilla.org/en-US/docs/Getting_started_with_XULRunner)
 - [Chrome Apps](http://developer.chrome.com/apps/about_apps)
 
-## Copyrights
