@@ -1,12 +1,15 @@
-Noname master project
-=====================
+# Noname master project
 
-Web app
+`biostream` or whatever the name's gonna be is a web application created to 
+represent, analyse mathematical model of biological process.
 
+### Process
 
-Contributing
-------------
+![Image of the software working process](docs/images/process.png)
 
+## Contributing
+
+### Documentation format
 Documentation (like this file) is written in markdown. For more information of
 the markdown language format look into thoses links:
 
@@ -15,8 +18,7 @@ the markdown language format look into thoses links:
 - [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)
 
 
-Transformation into a desktop app
----------------------------------
+## Transformation into a desktop app
 
 If needs be, a web app can be easily transformed into a desktop app using:
 
