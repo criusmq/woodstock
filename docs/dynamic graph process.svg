@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1280 800" enable-background="new 0 0 1280 800" xml:space="preserve">
+<text transform="matrix(1 0 0 1 149.3563 411.2829)" font-family="'Ubuntu'" font-size="14.1202">Petri Net</text>
+<text transform="matrix(1 0 0 1 492.2194 563.2828)" font-family="'Ubuntu'" font-size="14.1202">dynamic graph</text>
+<text transform="matrix(1 0 0 1 645.5652 432.2829)" font-family="'Ubuntu'" font-size="14.1202">Automatic layout</text>
+<g>
+	<rect x="145" y="323" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="340" x2="202" y2="340"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="349" x2="202" y2="349"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="358" x2="202" y2="358"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="367" x2="202" y2="367"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="376" x2="202" y2="376"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 142.4711 561.2828)" font-family="'Ubuntu'" font-size="14.1202">Directed graph</text>
+<g>
+	<rect x="157" y="473" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="169" y1="490" x2="214" y2="490"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="169" y1="499" x2="214" y2="499"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="169" y1="508" x2="214" y2="508"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="169" y1="517" x2="214" y2="517"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="169" y1="526" x2="214" y2="526"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 134.5658 169.2829)"><tspan x="0" y="0" font-family="'Ubuntu'" font-size="14.1202">Mathematical</tspan><tspan x="23.658" y="16.944" font-family="'Ubuntu'" font-size="14.1202">model</tspan></text>
+<g>
+	<rect x="145" y="81" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="98" x2="202" y2="98"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="107" x2="202" y2="107"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="116" x2="202" y2="116"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="125" x2="202" y2="125"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="157" y1="134" x2="202" y2="134"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 475.3744 169.2829)" font-family="'Ubuntu'" font-size="14.1202">Simulation data</text>
+<g>
+	<rect x="492" y="81" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="504" y1="98" x2="549" y2="98"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="504" y1="107" x2="549" y2="107"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="504" y1="116" x2="549" y2="116"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="504" y1="125" x2="549" y2="125"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="504" y1="134" x2="549" y2="134"/>
+	</g>
+</g>
+<g>
+	<rect x="506" y="475" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="518" y1="492" x2="563" y2="492"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="518" y1="501" x2="563" y2="501"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="518" y1="510" x2="563" y2="510"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="518" y1="519" x2="563" y2="519"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="518" y1="528" x2="563" y2="528"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 839.1656 446.2828)"><tspan x="0" y="0" font-family="'Ubuntu'" font-size="14.1202">Annotated</tspan><tspan x="-12.446" y="16.944" font-family="'Ubuntu'" font-size="14.1202">dynamic graph</tspan></text>
+<g>
+	<rect x="840" y="358" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="852" y1="375" x2="897" y2="375"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="852" y1="384" x2="897" y2="384"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="852" y1="393" x2="897" y2="393"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="852" y1="402" x2="897" y2="402"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="852" y1="411" x2="897" y2="411"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 815.235 702.2828)" font-family="'Ubuntu'" font-size="14.1202">Regulation motifs</text>
+<g>
+	<rect x="839" y="614" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="851" y1="631" x2="896" y2="631"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="851" y1="640" x2="896" y2="640"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="851" y1="649" x2="896" y2="649"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="851" y1="658" x2="896" y2="658"/>
+		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="851" y1="667" x2="896" y2="667"/>
+	</g>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 1032.151 583.2828)" font-family="'Ubuntu'" font-size="14.1202">Output</text>
+	<g>
+		<rect x="1022" y="495" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="66" height="70"/>
+		<g>
+			<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="1034" y1="512" x2="1079" y2="512"/>
+			<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="1034" y1="521" x2="1079" y2="521"/>
+			<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="1034" y1="530" x2="1079" y2="530"/>
+			<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="1034" y1="539" x2="1079" y2="539"/>
+			<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="1034" y1="548" x2="1079" y2="548"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 341.427 143.2829)" font-family="'Ubuntu'" font-size="14.1202">simulation</text>
+<polygon fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="420.51,108.079 386.385,89 328,89 328,128 
+	386.385,128 "/>
+<text transform="matrix(1 0 0 1 138.2761 283.2829)"><tspan x="0" y="0" font-family="'Ubuntu'" font-size="14.1202">transformation</tspan><tspan x="5.055" y="16.944" font-family="'Ubuntu'" font-size="14.1202">into Petri Net</tspan></text>
+<polygon fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="232.51,248.079 198.385,229 140,229 
+	140,268 198.385,268 "/>
+<polygon fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="746.344,397.079 712.219,378 654,378 
+	654,417 712.219,417 "/>
+<text transform="matrix(1 0 0 1 643.4329 676.2828)"><tspan x="0" y="0" font-family="'Ubuntu'" font-size="14.1202">Regulation motifs</tspan><tspan x="26.333" y="16.944" font-family="'Ubuntu'" font-size="14.1202">detection</tspan></text>
+<polygon fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="746.344,641.079 712.219,622 654,622 
+	654,661 712.219,661 "/>
+<g>
+	<line fill="#FFFFFF" x1="539.083" y1="579.5" x2="639" y2="638"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="539.083" y1="579.5" x2="637.521" y2="637.134"/>
+		<g>
+			<polygon points="633.657,637.819 637.138,636.91 636.227,633.43 638.09,634.521 639,638 635.521,638.91 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="546.083" y1="460" x2="646" y2="401.5"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="546.083" y1="460" x2="644.521" y2="402.366"/>
+		<g>
+			<polygon points="643.227,406.07 644.138,402.59 640.657,401.681 642.521,400.59 646,401.5 645.09,404.979 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="416" y1="511" x2="492" y2="511"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="416" y1="510.5" x2="490" y2="510.5"/>
+		<g>
+			<polygon points="487.298,513 489.842,510.5 487.298,508 489.457,508 492,510.5 489.457,513 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="753" y1="399" x2="829" y2="399"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="753" y1="398.5" x2="827" y2="398.5"/>
+		<g>
+			<polygon points="824.298,401 826.842,398.5 824.298,396 826.457,396 829,398.5 826.457,401 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="936" y1="537" x2="1012" y2="537"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="936" y1="536.5" x2="1010" y2="536.5"/>
+		<g>
+			<polygon points="1007.298,539 1009.842,536.5 1007.298,534 1009.457,534 1012,536.5 1009.457,539 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="872" y1="470" x2="872" y2="513"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="872.5" y1="470" x2="872.5" y2="511"/>
+		<g>
+			<polygon points="870,508.298 872.5,510.842 875,508.298 875,510.457 872.5,513 870,510.457 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="874" y1="606" x2="874" y2="563"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="874.5" y1="606" x2="874.5" y2="565"/>
+		<g>
+			<polygon points="877,567.702 874.5,565.158 872,567.702 872,565.543 874.5,563 877,565.543 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="750" y1="644" x2="826" y2="644"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="750" y1="643.5" x2="824" y2="643.5"/>
+		<g>
+			<polygon points="821.298,646 823.842,643.5 821.298,641 823.457,641 826,643.5 823.457,646 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line fill="#FFFFFF" x1="223" y1="509" x2="299" y2="509"/>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="223" y1="508.5" x2="297" y2="508.5"/>
+		<g>
+			<polygon points="294.298,511 296.842,508.5 294.298,506 296.457,506 299,508.5 296.457,511 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<path d="M916.35,532H869.65c-4.77,0-8.65,3.881-8.65,8.651v9.698c0,4.77,3.881,8.651,8.65,8.651h46.699
+		c4.77,0,8.65-3.881,8.65-8.651v-9.698C925,535.881,921.119,532,916.35,532z M922,540.694v9.611c0,3.14-2.555,5.694-5.694,5.694
+		h-46.611c-3.14,0-5.694-2.555-5.694-5.694v-9.611c0-3.14,2.555-5.694,5.694-5.694h46.611C919.445,535,922,537.555,922,540.694z"/>
+	<path d="M837,535.526v-11.042c0-3.098,3.13-4.484,6.232-4.484h47.383c3.114,0,4.385,1.299,4.385,4.484V531h3v-6.516
+		c0-4.826-2.623-7.484-7.385-7.484h-47.383c-4.588,0-9.232,2.571-9.232,7.484v11.042c0,4.87,4.486,9.474,9.232,9.474H860v-3h-16.768
+		C840.146,542,837,538.733,837,535.526z"/>
+	<path d="M895.288,536.918c-0.197,2.404-2.576,5.082-5.673,5.082H865v3h24.615c4.636,0,8.344-3.413,8.624-7.938l0.065-1.062h-2.94
+		L895.288,536.918z"/>
+</g>
+</svg>
