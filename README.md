@@ -1,6 +1,7 @@
-# Noname master project
+# Woodstock
 
-`biostream` or whatever the name's gonna be is a web application created to 
+[Woodstock©](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
+`Woodstock` or whatever the name's gonna be is a web application created to 
 represent, analyse mathematical model of biological process.
 
 ### Process
@@ -35,3 +36,6 @@ Other contenders:
 
 - [XUL Runner](https://developer.mozilla.org/en-US/docs/Getting_started_with_XULRunner)
 - [Chrome Apps](http://developer.chrome.com/apps/about_apps)
+- 
+
+## Copyrights
