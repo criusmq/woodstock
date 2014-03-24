@@ -37,6 +37,5 @@ Other contenders:
 
 - [XUL Runner](https://developer.mozilla.org/en-US/docs/Getting_started_with_XULRunner)
 - [Chrome Apps](http://developer.chrome.com/apps/about_apps)
-- 
 
 ## Copyrights
