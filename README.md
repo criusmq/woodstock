@@ -1,6 +1,7 @@
 # Woodstock
 
-[Woodstock©](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
+[Woodstock<sup>©</sup>](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
+
 `Woodstock` or whatever the name's gonna be is a web application created to 
 represent, analyse mathematical model of biological process.
 
