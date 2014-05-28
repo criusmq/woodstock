@@ -11,11 +11,19 @@ be extended to other fields.
 ### Best Friend
 Woodstock's best friend [Snoopy](http://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Snoopy) is a software tool to design and animate graphs based on the Petri Nets theory.
 
+
 ### Process
 
 ![Image of the software working process](docs/images/process.png)
 
+
+
+## Contrubutors
+See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors) for full list of contributors.
+
 ## Contributing
+
+## License
 
 ### Documentation format
 Documentation (like this file) is written in markdown. For more information of
