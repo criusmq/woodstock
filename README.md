@@ -1,6 +1,7 @@
+# Woodstock
+
 ![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
 _Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
-# Woodstock
 
 [Woodstock](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
 

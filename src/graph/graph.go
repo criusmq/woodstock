@@ -29,6 +29,3 @@ type Graph interface {
 	Edge(id int) *Edge
 }
 
-// Ensure a DirectedEdge is also an Edge
-// TODO: (This should be put in tests I think)
-var _ Edge = DirectedEdge{}
