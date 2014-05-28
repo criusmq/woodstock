@@ -1,9 +1,14 @@
+![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
+_Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 # Woodstock
 
-[Woodstock<sup>©</sup>](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
+[Woodstock](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts)
 
-`Woodstock` or whatever the name's gonna be is a web application created to 
-represent, analyse mathematical model of biological process.
+`Woodstock` or whatever the name's gonna be is a web application and a suite of tools
+used to show and analyse mathematical models of biological processes, this could easily
+be extended to other fields.
+
+### Best Friend
 Woodstock's best friend [Snoopy](http://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Snoopy) is a software tool to design and animate graphs based on the Petri Nets theory.
 
 ### Process
@@ -27,7 +32,6 @@ If needs be, a web app can be easily transformed into a desktop app using:
 
 - [Node webkit](https://github.com/rogerwang/node-webkit)
 - [Chromium embedded framework](https://code.google.com/p/chromiumembedded/)
-
 
 example:
 
