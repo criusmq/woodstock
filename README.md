@@ -13,7 +13,7 @@ be extended to other fields.
 
 Woodstock's best friend [Snoopy (the software)](http://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Snoopy) is a software tool to design and animate graphs based on the Petri Nets theory.
 
-### Building
+## Building
 
     # Add this project to your GOPATH
     export GOPATH=$GOPATH:$(pwd)
