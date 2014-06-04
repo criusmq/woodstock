@@ -2,4 +2,4 @@ package graph
 
 import "testing"
 
-func TestSimpleGraph(t *testing.T){}
+func TestSimpleGraph(t *testing.T) {}

@@ -1,26 +1,65 @@
- # PHONY tasks are tasks not tied to files
+ifeq ($(origin GOPATH), undefined)
+	GOPATH=$(CURDIR)
+else
+	GOPATH=$(CURDIR):$(GOPATH)
+endif
 
-.PHONY: all build test clean no_targets__ list
+GO ?= GOPATH=$(GOPATH) go
+
+# Colors
+RESETCOLOR="\033[0m"
+RCOLOR="\033[31m"
+GCOLOR="\033[32m"
+BCOLOR="\033[34m"
+CCOLOR="\033[36m"
+YCOLOR="\033[33m"
+MCOLOR="\033[35m"
+KCOLOR="\033[30m"
+WCOLOR="\033[37m"
+
+ # PHONY tasks are tasks not tied to files
+.PHONY: all build test clean env coverage doc no_targets__ list
 
 no_targets__:
 list:
-	sh -c "$(MAKE) -p no_targets__ | awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);for(i in A)print A[i]}' | grep -v '__\$$' | sort"
+	@sh -c "$(MAKE) -p no_targets__ | awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);for(i in A)print A[i]}' | grep -v '__\$$' | sort"
 
 
 all: build test
 
+doc:
+	@printf '%bBuilding documentation%b\n' $(BCOLOR) $(RESETCOLOR)
+	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
+
 build:
-	echo "Building... (NOT)"
+	@printf '%bBuilding software%b\n' $(BCOLOR) $(RESETCOLOR)
+	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
 # go build
 
-test:
-	echo "Testing... (NOT)"
+test: fmt vet
+	@printf '%bTesting%b\n' $(BCOLOR) $(RESETCOLOR)
+	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
 # go test
 
 coverage:
-	echo "Coverage... (NOT)"
+	@printf '%bTest Coverage%b\n' $(BCOLOR) $(RESETCOLOR)
+	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
 # go test -cover
 
 clean:
-	echo "Cleaning... (NOT)"
+	@printf '%bCleaning%b\n' $(BCOLOR) $(RESETCOLOR)
+	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
+
+env:
+	@printf '%bGo Environment:%b\n' $(BCOLOR) $(RESETCOLOR) 
+	@go env
+
+fmt:
+	@printf '%bfmt:%b ' $(BCOLOR) $(RESETCOLOR)
+	gofmt -w=true src
+
+vet:
+	@printf '%bvet: %b\n' $(BCOLOR) $(RESETCOLOR)
+	go tool vet src/**/*.go
+
 # go clean

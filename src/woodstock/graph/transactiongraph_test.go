@@ -2,4 +2,4 @@ package graph
 
 import "testing"
 
-func TestTransactionGraph(t *testing.T){}
+func TestTransactionGraph(t *testing.T) {}
