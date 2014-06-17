@@ -11,7 +11,7 @@ be extended to other fields.
 
 ## Basic Architecture
 
-![Basic Architecture Design](docs/basicuml.svg)
+![Basic Architecture Design](docs/basicuml.png)
 
 ## Graph Library design
 
