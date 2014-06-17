@@ -15,7 +15,7 @@ be extended to other fields.
 
 ## Graph Library design
 
-![Basic Architecture Design](https://raw.githubusercontent.com/criusmq/woodstock/master/docs/graphuml.svg)
+![Basic Architecture Design](https://raw.githubusercontent.com/criusmq/woodstock/master/docs/graphuml.png)
 
 
 ### Best Friend
