@@ -1,7 +1,7 @@
 ifeq ($(origin GOPATH), undefined)
-	GOPATH=$(CURDIR)
+	GOPATH:=$(CURDIR)
 else
-	GOPATH=$(CURDIR):$(GOPATH)
+	GOPATH:=$(CURDIR):$(GOPATH)
 endif
 
 
