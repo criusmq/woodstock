@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"log"
 	"os"
-  "fmt"
 	"woodstock/importer"
 )
 
@@ -29,7 +29,7 @@ func main() {
 
 	r := bufio.NewReader(fi)
 
-  v:= importer.ImportPetriNet(r)
+	v := importer.ImportPetriNet(r)
 	fmt.Printf("Snoopy=%+v", *v)
-  
+
 }

@@ -1,17 +1,12 @@
 package main
 
 import (
-  "woodstock/graph"
-  /* "./woodstock/mutator" */
+	"woodstock/graph"
+	/* "./woodstock/mutator" */
 	"fmt"
-	/* "github.com/codegangsta/negroni" */
-	/* "github.com/gorilla/mux" */
-	/* "html" */
-	/* "net/http" */
-	/* "time" */
-)
+	/* "github.com/codegangsta/negroni" */ /* "github.com/gorilla/mux" */ /* "html" */ /* "net/http" */ /* "time" */)
 
-func main(){
+func main() {
 
-  fmt.Println("Hello")
+	fmt.Println("Hello")
 }

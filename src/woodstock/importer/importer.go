@@ -1,9 +1,9 @@
 package importer
 
 import (
+	"encoding/xml"
 	"io"
 	"woodstock/graph"
-	"encoding/xml"
 )
 
 // Snoopy
@@ -28,8 +28,8 @@ type NodeClass struct {
 }
 
 type Node struct {
-	Id string `xml:"id,attr"`
-  Attributes []Attribute `xml:"attribute"`
+	Id         string      `xml:"id,attr"`
+	Attributes []Attribute `xml:"attribute"`
 }
 
 type EdgeClass struct {
@@ -37,21 +37,21 @@ type EdgeClass struct {
 	Name  string `xml:"name,attr"`
 }
 type Edge struct {
-	Id string `xml:"id,attr"`
-  Attributes []Attribute `xml:"attribute"`
+	Id         string      `xml:"id,attr"`
+	Attributes []Attribute `xml:"attribute"`
 }
-type Attribute struct{
-  Name string `xml:"name,attr"`
+type Attribute struct {
+	Name string `xml:"name,attr"`
 }
 
 // ImportPetriNet imports a petrinet into a graph "g"
-func ImportPetriNet(r io.Reader) *Snoopy{
+func ImportPetriNet(r io.Reader) *Snoopy {
 	v := Snoopy{}
 	xml.NewDecoder(r).Decode(&v)
 
-  return &v
+	return &v
 }
 
-func (S Snoopy) graph() *graph.SimpleGraph{
-  return graph.NewSimpleGraph()
+func (S Snoopy) graph() *graph.SimpleGraph {
+	return graph.NewSimpleGraph()
 }

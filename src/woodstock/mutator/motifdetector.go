@@ -2,9 +2,8 @@ package mutator
 
 import "woodstock/graph"
 
-type MotifDetector struct{
+type MotifDetector struct {
 }
 
-func (md MotifDetector) mutate(g *graph.Graph){
+func (md MotifDetector) mutate(g *graph.Graph) {
 }
-

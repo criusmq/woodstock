@@ -4,7 +4,6 @@ else
 	GOPATH=$(CURDIR):$(GOPATH)
 endif
 
-GO ?= GOPATH=$(GOPATH) go
 
 # Colors
 RESETCOLOR="\033[0m"
@@ -37,9 +36,8 @@ build:
 # go build
 
 test: fmt vet
-	@printf '%bTesting%b\n' $(BCOLOR) $(RESETCOLOR)
-	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
-# go test
+	@printf '%bTesting: %b' $(BCOLOR) $(RESETCOLOR)
+	GOPATH=$(GOPATH) go test -v ./...
 
 coverage:
 	@printf '%bTest Coverage%b\n' $(BCOLOR) $(RESETCOLOR)
@@ -59,7 +57,7 @@ fmt:
 	gofmt -w=true src
 
 vet:
-	@printf '%bvet: %b\n' $(BCOLOR) $(RESETCOLOR)
-	go tool vet src/**/*.go
+	@printf '%bvet: %b' $(BCOLOR) $(RESETCOLOR)
+	GOPATH=$(GOPATH) go tool vet -v src/woodstock/
 
 # go clean
