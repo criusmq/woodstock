@@ -3,9 +3,20 @@
 ![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
 _Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 
+[![Build Status](https://travis-ci.org/criusmq/woodstock.svg?branch=master)](https://travis-ci.org/criusmq/woodstock)
+
 `Woodstock` or whatever the name's gonna be is a web application and a suite of tools
 used to show and analyse mathematical models of biological processes (petri nets), this could easily
 be extended to other fields.
+
+## Basic Architecture
+
+![Basic Architecture Design](docs/basicuml.svg)
+
+## Graph Library design
+
+![Basic Architecture Design](docs/graphuml.svg)
+
 
 ### Best Friend
 

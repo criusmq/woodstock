@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 550.472 287.986" enable-background="new 0 0 550.472 287.986" xml:space="preserve">
+<text transform="matrix(1 0 0 1 151.1048 161.3438)" font-family="'MyriadPro-Regular'" font-size="13.162">Graph</text>
+<text transform="matrix(1 0 0 1 128.2291 172.3121)" font-family="'MyriadPro-Regular'" font-size="13.162">&lt;&lt;interface&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 253.0036 161.7094)" font-family="'MyriadPro-Regular'" font-size="13.162">TransactionGraph</text>
+<text transform="matrix(1 0 0 1 262.0779 172.6777)" font-family="'MyriadPro-Regular'" font-size="13.162">&lt;&lt;interface&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 393.9584 133.8309)" font-family="'MyriadPro-Regular'" font-size="13.162">SimpleTransactionGraph</text>
+<text transform="matrix(1 0 0 1 11.994 133.648)" font-family="'MyriadPro-Regular'" font-size="13.162">SimpleGraph</text>
+<text transform="matrix(1 0 0 1 18.0179 201.6518)" font-family="'MyriadPro-Regular'" font-size="13.162">RedisGraph</text>
+<text transform="matrix(1 0 0 1 219.8521 54.9507)" font-family="'MyriadPro-Regular'" font-size="13.162">Node</text>
+<text transform="matrix(1 0 0 1 194.9561 65.919)" font-family="'MyriadPro-Regular'" font-size="13.162">&lt;&lt;interface&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 86.9899 54.9508)" font-family="'MyriadPro-Regular'" font-size="13.162">Edge</text>
+<text transform="matrix(1 0 0 1 61.0673 65.9191)" font-family="'MyriadPro-Regular'" font-size="13.162">&lt;&lt;interface&gt;&gt;</text>
+<rect x="189.856" y="36.799" fill="none" stroke="#000000" stroke-miterlimit="10" width="88.844" height="40.583"/>
+<rect x="57.454" y="36.799" fill="none" stroke="#000000" stroke-miterlimit="10" width="88.844" height="40.583"/>
+<rect x="124.139" y="143.192" fill="none" stroke="#000000" stroke-miterlimit="10" width="88.844" height="40.583"/>
+<rect x="12.094" y="184.35" fill="none" stroke="#000000" stroke-miterlimit="10" width="75.184" height="27.367"/>
+<text transform="matrix(1 0 0 1 220.1084 263.2754)" font-family="'MyriadPro-Regular'" font-size="13.162">Redis</text>
+<rect x="190.382" y="245.882" fill="none" stroke="#000000" stroke-miterlimit="10" width="88.844" height="27.367"/>
+<rect x="249.291" y="143.192" fill="none" stroke="#000000" stroke-miterlimit="10" width="104.199" height="40.583"/>
+<rect x="9.148" y="116.346" fill="none" stroke="#000000" stroke-miterlimit="10" width="77.373" height="27.367"/>
+<rect x="389.912" y="116.346" fill="none" stroke="#000000" stroke-miterlimit="10" width="143.686" height="27.367"/>
+<text transform="matrix(1 0 0 1 398.9376 201.8347)" font-family="'MyriadPro-Regular'" font-size="13.162">RedisTransactionGraph</text>
+<rect x="390.719" y="184.35" fill="none" stroke="#000000" stroke-miterlimit="10" width="143.686" height="27.367"/>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="87.277,198.033 104.761,198.033 
+			104.761,164.031 118.396,164.031 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="86.521,130.029 104.761,130.029 
+			104.761,164.031 118.396,164.031 		"/>
+	</g>
+</g>
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="101.876,77.382 101.876,105.351 168.077,105.351 
+	168.077,143.192 "/>
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="168.077,143.192 168.077,105.351 234.278,105.351 
+	234.278,77.382 "/>
+<g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="471.45" y1="74.37" x2="525.195" y2="74.37"/>
+	<text transform="matrix(1 0 0 1 471.4761 83.2278)" font-family="'MyriadPro-Regular'" font-size="8">association</text>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" x1="472.56" y1="20.897" x2="525.791" y2="20.897"/>
+		<g>
+			<polygon points="522.578,25.383 521.829,24.579 525.791,20.899 521.829,17.216 522.578,16.412 527.401,20.899 			"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 471.4505 33.0436)" font-family="'MyriadPro-Regular'" font-size="8">dependency</text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 471.4504 59.1762)" font-family="'MyriadPro-Regular'" font-size="8">realization</text>
+	<g>
+		<g>
+			<g>
+				
+					<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" x1="471.657" y1="48.667" x2="521.195" y2="48.667"/>
+			</g>
+		</g>
+		<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="526.375,48.417 523.885,50.45 521.396,52.483 
+			521.396,48.417 521.396,44.351 523.885,46.384 		"/>
+	</g>
+</g>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="123.103,163.857 120.749,165.89 118.396,167.923 
+	118.396,163.857 118.396,159.791 120.749,161.824 "/>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="389.346,130.029 371.862,130.029 
+			371.862,164.031 358.228,164.031 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="390.103,198.033 371.862,198.033 
+			371.862,164.031 358.228,164.031 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="49.685,213.302 49.685,230.786 
+			234.804,230.786 234.804,244.421 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="2,2" points="462.562,212.546 462.562,230.786 
+			234.804,230.786 234.804,244.421 		"/>
+	</g>
+</g>
+<polygon fill="none" stroke="#000000" stroke-miterlimit="10" points="353.521,164.206 355.958,162.173 358.396,160.139 
+	358.396,164.206 358.396,168.271 355.958,166.238 "/>
+<g>
+	<polygon points="230.318,240.859 231.122,240.111 234.803,244.073 238.485,240.111 239.289,240.859 234.803,245.683 	"/>
+</g>
+</svg>
