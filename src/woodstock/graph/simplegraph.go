@@ -79,7 +79,7 @@ func (g SimpleGraph) RemoveNode(n *SimpleGraphNode) (err error) {
 	delete(g.nodes, n.id)
 
 	for _, e := range n.edges {
-		g.removeEdge(e)
+		g.RemoveEdge(e)
 	}
 
 	return nil
