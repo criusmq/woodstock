@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"github.com/criusmq/woodstock/importer"
 	"log"
 	"os"
-	"github.com/criusmq/woodstock/importer"
 )
 
 var inputFile = flag.String("infile", "simple.spept", "Input file path")

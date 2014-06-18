@@ -1,4 +1,3 @@
-
 # Colors
 RESETCOLOR="\033[0m"
 RCOLOR="\033[31m"
@@ -27,18 +26,15 @@ doc:
 
 build:
 	@printf '%bBuilding software%b\n' $(BCOLOR) $(RESETCOLOR)
-	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
 	go build
-# go build
 
 test: 
 	@printf '%bTesting: %b' $(BCOLOR) $(RESETCOLOR)
-	GOPATH=$(GOPATH) go test -v ./...
+	go test -v ./...
 
 coverage:
 	@printf '%bTest Coverage%b\n' $(BCOLOR) $(RESETCOLOR)
-	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
-# go test -cover
+	go test -cover ./...
 
 clean:
 	@printf '%bCleaning%b\n' $(BCOLOR) $(RESETCOLOR)
@@ -46,14 +42,14 @@ clean:
 
 env:
 	@printf '%bGo Environment:%b\n' $(BCOLOR) $(RESETCOLOR) 
-	@go env
+	go env
 
 fmt:
 	@printf '%bfmt:%b ' $(BCOLOR) $(RESETCOLOR)
-	gofmt -w=true src
+	go fmt -x ./...
 
 vet:
 	@printf '%bvet: %b' $(BCOLOR) $(RESETCOLOR)
-	GOPATH=$(GOPATH) go tool vet -v src/woodstock/
+	go vet -x ./...
 
 # go clean
