@@ -35,7 +35,7 @@ build:
 	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
 # go build
 
-test: fmt vet
+test: 
 	@printf '%bTesting: %b' $(BCOLOR) $(RESETCOLOR)
 	GOPATH=$(GOPATH) go test -v ./...
 
