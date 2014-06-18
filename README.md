@@ -5,41 +5,23 @@ _Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://
 
 [![Build Status](https://drone.io/github.com/criusmq/woodstock/status.png)](https://drone.io/github.com/criusmq/woodstock/latest)
 
-`Woodstock` or whatever the name's gonna be is a web application and a suite of tools
-used to show and analyse mathematical models of biological processes (petri nets), this could easily
-be extended to other fields.
-
-## Basic Architecture
-
-![Basic Architecture Design](docs/basicuml.png)
-
-## Graph Library design
-
-![Basic Architecture Design](https://raw.githubusercontent.com/criusmq/woodstock/master/docs/graphuml.png)
-
-
-### Best Friend
-
-[Woodstock](https://en.wikipedia.org/wiki/Woodstock_(Peanuts)) is Snoopy's best friend in [Charles M. Schulz ](https://en.wikipedia.org/wiki/Charles_M._Schulz) comic strip [Peanuts](https://en.wikipedia.org/wiki/Peanuts). 
-
-Woodstock's best friend [Snoopy (the software)](http://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Snoopy) is a software tool to design and animate graphs based on the Petri Nets theory.
+`Woodstock` a suite of tools used to show and analyse mathematical models of biological processes modeled from (petri nets), this could easily be extended to other fields.
 
 ## Building
 
-    # Add this project to your GOPATH
-    export GOPATH=$GOPATH:$(pwd)
+    # you need go from http://golang.org
+    go get github.com/criusmq/woodstock
 
-    # and now build
-    go build woodstock
-
-## Contributors
-See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors) for full list of contributors.
+    go build github.com/criusmq/woodstock
 
 ## Contributing
 
 1. Check if there is an existing [issue](https://github.com/criusmq/woodstock/issues) about the same subject.
 2. [Create one](https://github.com/criusmq/woodstock/issues/new) if not.
 3. Share your patch (as a [pull request](https://github.com/criusmq/woodstock/pulls) preferably).
+
+## Contributors
+See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors) for full list of contributors.
 
 ## License
 
