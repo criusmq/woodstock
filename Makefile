@@ -1,9 +1,3 @@
-ifeq ($(origin GOPATH), undefined)
-	GOPATH:=$(CURDIR)
-else
-	GOPATH:=$(CURDIR):$(GOPATH)
-endif
-
 
 # Colors
 RESETCOLOR="\033[0m"
@@ -20,12 +14,12 @@ WCOLOR="\033[37m"
 .PHONY: all build test clean env coverage doc no_targets__ list
 
 all: build test
+verify: fmt vet
+alltests: test coverage
 	
 no_targets__:
 list:
 	@sh -c "$(MAKE) -p no_targets__ | awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);for(i in A)print A[i]}' | grep -v '__\$$' | sort"
-
-
 
 doc:
 	@printf '%bBuilding documentation%b\n' $(BCOLOR) $(RESETCOLOR)
@@ -34,6 +28,7 @@ doc:
 build:
 	@printf '%bBuilding software%b\n' $(BCOLOR) $(RESETCOLOR)
 	@printf '%b ... ... (NOT)%b\n' $(RCOLOR) $(RESETCOLOR)
+	go build
 # go build
 
 test: 

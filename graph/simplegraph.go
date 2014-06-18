@@ -1,6 +1,5 @@
 package graph
 
-
 // SimpleGraphNode is the node structure that is stored in SimpleGraph. It also
 // stores the different edges which are connected to it.
 type SimpleGraphNode struct {
@@ -72,6 +71,7 @@ func (g SimpleGraph) AddEdge(fromNode *SimpleGraphNode,
 	g.edges[id] = e
 	return e
 }
+
 // RemoveNode removes n from SimpleGraph, if there are edges connected to that
 // node they are also destroyed
 func (g SimpleGraph) RemoveNode(n *SimpleGraphNode) (err error) {
@@ -84,6 +84,7 @@ func (g SimpleGraph) RemoveNode(n *SimpleGraphNode) (err error) {
 
 	return nil
 }
+
 // RemoveEdge removes the edge e from the SimpleGraph and deletes the link to it
 // from the nodes it connects together
 func (g SimpleGraph) RemoveEdge(e *SimpleGraphEdge) (err error) {
