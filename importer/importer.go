@@ -3,7 +3,7 @@ package importer
 import (
 	"encoding/xml"
 	"io"
-	"woodstock/graph"
+	"github.com/criusmq/woodstock/graph"
 )
 
 // Snoopy

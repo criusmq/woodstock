@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"woodstock/importer"
+	"github.com/criusmq/woodstock/importer"
 )
 
-var inputFile = flag.String("infile", "enwiki-latest-pages-articles.xml", "Input file path")
+var inputFile = flag.String("infile", "simple.spept", "Input file path")
 
 func main() {
 	flag.Parse()
