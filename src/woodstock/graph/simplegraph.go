@@ -1,5 +1,8 @@
 package graph
 
+
+// SimpleGraphNode is the node structure that is stored in SimpleGraph. It also
+// stores the different edges which are connected to it.
 type SimpleGraphNode struct {
 	id    int
 	edges map[int]*SimpleGraphEdge
@@ -9,6 +12,8 @@ func NewSimpleGraphNode() *SimpleGraphNode {
 	return &SimpleGraphNode{edges: map[int]*SimpleGraphEdge{}}
 }
 
+// SimpleGraphEdge is the edge structure thats is stored in SimpleGraph and that
+// is stores Nodes connected to it in a list
 type SimpleGraphEdge struct {
 	id int
 	// First one is the input Node and second one is the output Node
@@ -19,6 +24,8 @@ func NewSimpleGraphEdge() *SimpleGraphEdge {
 	return &SimpleGraphEdge{nodes: []*SimpleGraphNode{}}
 }
 
+// SimpleGraph is the implementation of a simple adjacency list graph that
+// where links are stored in a list and that you can get nodes from edges
 type SimpleGraph struct {
 	nodes map[int]*SimpleGraphNode
 	edges map[int]*SimpleGraphEdge
@@ -35,7 +42,8 @@ func NewSimpleGraph() *SimpleGraph {
 		edges:      map[int]*SimpleGraphEdge{}}
 }
 
-func (g SimpleGraph) addNode() *SimpleGraphNode {
+// AddNode adds a node to the SimpleGraph and returns it
+func (g SimpleGraph) AddNode() *SimpleGraphNode {
 	n := NewSimpleGraphNode()
 
 	id := g.lastNodeID + 1
@@ -46,7 +54,8 @@ func (g SimpleGraph) addNode() *SimpleGraphNode {
 	return n
 }
 
-func (g SimpleGraph) addEdge(fromNode *SimpleGraphNode,
+// AddEdge adds an edge to the SimpleGraph connected to fromNode and toNode
+func (g SimpleGraph) AddEdge(fromNode *SimpleGraphNode,
 	toNode *SimpleGraphNode) *SimpleGraphEdge {
 
 	id := g.lastEdgeID + 1
@@ -63,8 +72,9 @@ func (g SimpleGraph) addEdge(fromNode *SimpleGraphNode,
 	g.edges[id] = e
 	return e
 }
-
-func (g SimpleGraph) removeNode(n *SimpleGraphNode) (err error) {
+// RemoveNode removes n from SimpleGraph, if there are edges connected to that
+// node they are also destroyed
+func (g SimpleGraph) RemoveNode(n *SimpleGraphNode) (err error) {
 
 	delete(g.nodes, n.id)
 
@@ -74,8 +84,9 @@ func (g SimpleGraph) removeNode(n *SimpleGraphNode) (err error) {
 
 	return nil
 }
-
-func (g SimpleGraph) removeEdge(e *SimpleGraphEdge) (err error) {
+// RemoveEdge removes the edge e from the SimpleGraph and deletes the link to it
+// from the nodes it connects together
+func (g SimpleGraph) RemoveEdge(e *SimpleGraphEdge) (err error) {
 
 	delete(g.edges, e.id)
 
