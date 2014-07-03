@@ -4,6 +4,7 @@
 _Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 
 [![Build Status](https://drone.io/github.com/criusmq/woodstock/status.png)](https://drone.io/github.com/criusmq/woodstock/latest)
+[![GoDoc](https://godoc.org/github.com/criusmq/woodstock?status.png)](http://godoc.org/github.com/criusmq/woodstock)
 
 `Woodstock` a suite of tools used to show and analyse mathematical models of biological processes modeled from (petri nets), this could easily be extended to other fields.
 
