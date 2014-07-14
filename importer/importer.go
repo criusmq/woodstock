@@ -37,11 +37,15 @@ type EdgeClass struct {
 	Name  string `xml:"name,attr"`
 }
 type Edge struct {
-	Id         string      `xml:"id,attr"`
+	Id         int         `xml:"id,attr"`
+	Source     int         `xml:"source,attr"`
+	Target     int         `xml:"target,attr"`
 	Attributes []Attribute `xml:"attribute"`
 }
 type Attribute struct {
-	Name string `xml:"name,attr"`
+	Id      int    `xml:"id,attr"`
+	Name    string `xml:"name,attr"`
+	Content string `xml:",chardata"`
 }
 
 // ImportPetriNet imports a petrinet into a graph "g"
