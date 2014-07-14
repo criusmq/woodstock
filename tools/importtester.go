@@ -30,6 +30,9 @@ func main() {
 	r := bufio.NewReader(fi)
 
 	v := importer.ImportPetriNet(r)
-	fmt.Printf("Snoopy=%+v", *v)
+  
+  v.Graph()
+	//fmt.Printf("Snoopy=%+v", *v)
+  fmt.Printf("done.....................")
 
 }

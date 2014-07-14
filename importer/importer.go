@@ -4,6 +4,8 @@ import (
 	"encoding/xml"
 	"github.com/criusmq/woodstock/graph"
 	"io"
+  "fmt"
+  "strings"
 )
 
 // Snoopy
@@ -57,6 +59,31 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 }
 
 // Shall convert the Snoopy structure S to a new graph
-func (S Snoopy) graph() *graph.SimpleGraph {
-	return graph.NewSimpleGraph()
+func (S Snoopy) Graph() *graph.SimpleGraph {
+  g:= graph.NewSimpleGraph()
+
+  // for each node create a node
+  for _,nc := range S.NodeClasses {
+    for _,n := range nc.Nodes {
+      fmt.Printf("NodeClass=%v, Node=%v\n" , nc.Name, n.Id)
+      // collect the needed attributes
+    }
+  }
+
+  // for each edge create an edge connecting the corresponding nodes
+  for _,ec := range S.EdgeClasses {
+    for _,e := range ec.Edges {
+      fmt.Printf("EdgeClass=%v, Edge=%v(src=%v,dst=%v)\n" , ec.Name, e.Id,e.Source,e.Target)
+
+      // collect the needed attributes
+      for _,a := range e.Attributes{
+        content:= strings.Trim(a.Content,"\n\r ")
+        
+        switch a.Name{
+          case "Multiplicity": fmt.Printf("Attribute=%v, Content=%v\n",a.Name,content)
+        }
+      }
+    }
+  }
+	return g
 }
