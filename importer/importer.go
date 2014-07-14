@@ -48,7 +48,7 @@ type Attribute struct {
 	Content string `xml:",chardata"`
 }
 
-// ImportPetriNet imports a petrinet into a graph "g"
+// ImportPetriNet imports a snoopy spept  file into a usable structure in woodstock
 func ImportPetriNet(r io.Reader) *Snoopy {
 	v := Snoopy{}
 	xml.NewDecoder(r).Decode(&v)
@@ -56,6 +56,7 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 	return &v
 }
 
+// Shall convert the Snoopy structure S to a new graph
 func (S Snoopy) graph() *graph.SimpleGraph {
 	return graph.NewSimpleGraph()
 }
