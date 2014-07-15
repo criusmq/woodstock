@@ -11,6 +11,10 @@ func NewSimpleGraphNode() *SimpleGraphNode {
 	return &SimpleGraphNode{edges: map[int]*SimpleGraphEdge{}}
 }
 
+func (n *SimpleGraphNode) Id() (int){
+  return n.id
+}
+
 // SimpleGraphEdge is the edge structure thats is stored in SimpleGraph and that
 // is stores Nodes connected to it in a list
 type SimpleGraphEdge struct {

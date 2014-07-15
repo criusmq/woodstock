@@ -10,11 +10,13 @@ import (
 
 // Snoopy
 //  > NodeClasses "Places" "Transitions" "Coarse Place" "Coarse Transition"
-//   > NodeClass
-//     > Node
+//    > NodeClass
+//      > Node
+//        > Attribute
 // > EdgeClasses "Edges" "Read Edges" "Inhibitor Edge" "Reset Edge" "Equal Edge"
 //   > EdgeClass
 //     > Edge
+//        > Attribute
 
 type Snoopy struct {
 	NodeClasses []NodeClass `xml:"nodeclasses>nodeclass"`
@@ -30,7 +32,7 @@ type NodeClass struct {
 }
 
 type Node struct {
-	Id         string      `xml:"id,attr"`
+	Id         int      `xml:"id,attr"`
 	Attributes []Attribute `xml:"attribute"`
 }
 
@@ -61,12 +63,16 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 // Shall convert the Snoopy structure S to a new graph
 func (S Snoopy) Graph() *graph.SimpleGraph {
   g:= graph.NewSimpleGraph()
+  
+  // Simple Map since node ids are gonna change
+  nodes := map[int]*graph.SimpleGraphNode{}
 
   // for each node create a node
   for _,nc := range S.NodeClasses {
     for _,n := range nc.Nodes {
-      fmt.Printf("NodeClass=%v, Node=%v\n" , nc.Name, n.Id)
-      // collect the needed attributes
+      node:= g.AddNode()
+      nodes[n.Id] = node
+      fmt.Printf("NodeClass=%v, Node.id=%v, g.Node.Id=%v\n" , nc.Name, n.Id,node.Id())
     }
   }
 
@@ -82,6 +88,7 @@ func (S Snoopy) Graph() *graph.SimpleGraph {
         switch a.Name{
           case "Multiplicity": fmt.Printf("Attribute=%v, Content=%v\n",a.Name,content)
         }
+        g.AddEdge(nodes[e.Source],nodes[e.Target])
       }
     }
   }
