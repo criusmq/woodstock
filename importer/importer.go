@@ -88,9 +88,8 @@ func (S Snoopy) Graph() *graph.SimpleGraph {
 
 				switch a.Name {
 				case "Multiplicity":
-          i64multiplicity,_ := strconv.ParseInt(content,10,32)
-          multiplicity = int(i64multiplicity)
-				}
+          multiplicity,_ = strconv.Atoi(content)
+        }
 
 			}
 			// Add the edge to the graph
