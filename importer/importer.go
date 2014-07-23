@@ -2,10 +2,11 @@ package importer
 
 import (
 	"encoding/xml"
+	"fmt"
 	"github.com/criusmq/woodstock/graph"
 	"io"
-  "fmt"
-  "strings"
+	"strings"
+  "strconv"
 )
 
 // Snoopy
@@ -32,7 +33,7 @@ type NodeClass struct {
 }
 
 type Node struct {
-	Id         int      `xml:"id,attr"`
+	Id         int         `xml:"id,attr"`
 	Attributes []Attribute `xml:"attribute"`
 }
 
@@ -62,35 +63,41 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 
 // Shall convert the Snoopy structure S to a new graph
 func (S Snoopy) Graph() *graph.SimpleGraph {
-  g:= graph.NewSimpleGraph()
-  
-  // Simple Map since node ids are gonna change
-  nodes := map[int]*graph.SimpleGraphNode{}
+	g := graph.NewSimpleGraph()
 
-  // for each node create a node
-  for _,nc := range S.NodeClasses {
-    for _,n := range nc.Nodes {
-      node:= g.AddNode()
-      nodes[n.Id] = node
-      fmt.Printf("NodeClass=%v, Node.id=%v, g.Node.Id=%v\n" , nc.Name, n.Id,node.Id())
-    }
-  }
+	// Simple Map since node ids are gonna change
+	nodes := map[int]*graph.SimpleGraphNode{}
 
-  // for each edge create an edge connecting the corresponding nodes
-  for _,ec := range S.EdgeClasses {
-    for _,e := range ec.Edges {
-      fmt.Printf("EdgeClass=%v, Edge=%v(src=%v,dst=%v)\n" , ec.Name, e.Id,e.Source,e.Target)
+	// for each node create a node
+	for _, nc := range S.NodeClasses {
+		for _, n := range nc.Nodes {
+			node := g.AddNode()
+			nodes[n.Id] = node
+			fmt.Printf("NodeClass=%v, Node.id=%v, g.Node.Id=%v\n", nc.Name, n.Id, node.Id())
+		}
+	}
 
-      // collect the needed attributes
-      for _,a := range e.Attributes{
-        content:= strings.Trim(a.Content,"\n\r ")
-        
-        switch a.Name{
-          case "Multiplicity": fmt.Printf("Attribute=%v, Content=%v\n",a.Name,content)
-        }
-        g.AddEdge(nodes[e.Source],nodes[e.Target])
-      }
-    }
-  }
+	// for each edge create an edge connecting the corresponding nodes
+	for _, ec := range S.EdgeClasses {
+		for _, e := range ec.Edges {
+      
+      multiplicity := 0 
+			// collect the needed attributes
+			for _, a := range e.Attributes {
+				content := strings.Trim(a.Content, "\n\r ")
+
+				switch a.Name {
+				case "Multiplicity":
+          i64multiplicity,_ := strconv.ParseInt(content,10,32)
+          multiplicity = int(i64multiplicity)
+				}
+
+			}
+			// Add the edge to the graph
+			edge := g.AddEdge(nodes[e.Source], nodes[e.Target])
+			fmt.Printf("EdgeClass=%v, Edge=%v -> %v(src=%v,dst=%v)\n", ec.Name, e.Id, edge.Id(), e.Source, e.Target)
+      fmt.Printf("multiplicity=%v\n",multiplicity)
+		}
+	}
 	return g
 }
