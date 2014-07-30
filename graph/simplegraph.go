@@ -3,17 +3,20 @@ package graph
 // SimpleGraphNode is the node structure that is stored in SimpleGraph. It also
 // stores the different edges which are connected to it.
 type SimpleGraphNode struct {
-	id    int
-  
-  Edges map[int]*SimpleGraphEdge
+	id int
+
+	Edges map[int]*SimpleGraphEdge
+
+	Attributes map[string]string
 }
 
 func NewSimpleGraphNode() *SimpleGraphNode {
-  return &SimpleGraphNode{Edges : map[int]*SimpleGraphEdge{}}
+	return &SimpleGraphNode{Edges: map[int]*SimpleGraphEdge{},
+		Attributes: map[string]string{}}
 }
 
-func (n SimpleGraphNode) Id() (int){
-  return n.id
+func (n SimpleGraphNode) Id() int {
+	return n.id
 }
 
 // SimpleGraphEdge is the edge structure thats is stored in SimpleGraph and that
@@ -21,15 +24,17 @@ func (n SimpleGraphNode) Id() (int){
 type SimpleGraphEdge struct {
 	id int
 	// First one is the input Node and second one is the output Node
-	Nodes []*SimpleGraphNode
+	Nodes      []*SimpleGraphNode
+	Attributes map[string]string
 }
 
 func NewSimpleGraphEdge() *SimpleGraphEdge {
-	return &SimpleGraphEdge{Nodes: []*SimpleGraphNode{}}
+	return &SimpleGraphEdge{Nodes: []*SimpleGraphNode{},
+		Attributes: map[string]string{}}
 }
 
-func (e SimpleGraphEdge) Id() (int){
-  return e.id
+func (e SimpleGraphEdge) Id() int {
+	return e.id
 }
 
 // SimpleGraph is the implementation of a simple adjacency list graph that
@@ -50,6 +55,13 @@ func NewSimpleGraph() *SimpleGraph {
 		edges:      map[int]*SimpleGraphEdge{}}
 }
 
+func (g SimpleGraph) Edge(id int) *SimpleGraphEdge {
+  return g.edges[id]
+}
+func (g SimpleGraph) Node(id int) *SimpleGraphNode {
+  return g.nodes[id]
+}
+
 // AddNode adds a node to the SimpleGraph and returns it
 func (g *SimpleGraph) AddNode() *SimpleGraphNode {
 	n := NewSimpleGraphNode()
@@ -57,8 +69,7 @@ func (g *SimpleGraph) AddNode() *SimpleGraphNode {
 	id := g.lastNodeID + 1
 	g.lastNodeID = id
 	n.id = id
-  
-  
+
 	g.nodes[id] = n
 	return n
 }

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/criusmq/woodstock/graph"
 	"io"
+	"strconv"
 	"strings"
-  "strconv"
 )
 
 // Snoopy
@@ -73,29 +73,36 @@ func (S Snoopy) Graph() *graph.SimpleGraph {
 		for _, n := range nc.Nodes {
 			node := g.AddNode()
 			nodes[n.Id] = node
-			fmt.Printf("NodeClass=%v, Node.id=%v, g.Node.Id=%v\n", nc.Name, n.Id, node.Id())
+      
+      node.Attributes["type"] = nc.Name 
+
+			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
 		}
 	}
 
 	// for each edge create an edge connecting the corresponding nodes
 	for _, ec := range S.EdgeClasses {
 		for _, e := range ec.Edges {
-      
-      multiplicity := 0 
+
+			multiplicity := 0
 			// collect the needed attributes
 			for _, a := range e.Attributes {
 				content := strings.Trim(a.Content, "\n\r ")
 
 				switch a.Name {
 				case "Multiplicity":
-          multiplicity,_ = strconv.Atoi(content)
-        }
+					multiplicity, _ = strconv.Atoi(content)
+				}
 
 			}
 			// Add the edge to the graph
 			edge := g.AddEdge(nodes[e.Source], nodes[e.Target])
-			fmt.Printf("EdgeClass=%v, Edge=%v -> %v(src=%v,dst=%v)\n", ec.Name, e.Id, edge.Id(), e.Source, e.Target)
-      fmt.Printf("multiplicity=%v\n",multiplicity)
+      
+      edge.Attributes["multiplicity"] = strconv.Itoa(multiplicity)
+      edge.Attributes["type"] = ec.Name 
+			
+      fmt.Printf("Edge = %v\n", edge)
+
 		}
 	}
 	return g

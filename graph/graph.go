@@ -7,7 +7,7 @@ package graph
 /*   Id() int() */
 /*   Edges() [](*Edges) */
 /* } */
-/* // Edges are the basic element of a Graph that links Nodes together */ 
+/* // Edges are the basic element of a Graph that links Nodes together */
 /* type Edge interface { */
 /*   Id int() */
 /*   Nodes() [](*Node) */
