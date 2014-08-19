@@ -5,8 +5,10 @@ import (
 	"flag"
 	"fmt"
 	"github.com/criusmq/woodstock/importer"
+	"github.com/criusmq/woodstock/graph"
 	"log"
 	"os"
+  "encoding/json"
 )
 
 var inputFile = flag.String("infile", "simple.spept", "Input file path")
@@ -28,11 +30,19 @@ func main() {
 	}()
 
 	r := bufio.NewReader(fi)
-
 	v := importer.ImportPetriNet(r)
-  
-  v.Graph()
-	//fmt.Printf("Snoopy=%+v", *v)
+	g := graph.NewSimpleGraph()
+	v.Graph(g)
+fmt.Println("%v",v)
+fmt.Println("%v",g)
+
+b, err := json.Marshal(g)
+if err != nil {
+    fmt.Println("error:", err)
+}
+os.Stdout.Write(b)
+
+
   fmt.Printf("done.....................")
 
 }

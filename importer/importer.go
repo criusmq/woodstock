@@ -2,7 +2,7 @@ package importer
 
 import (
 	"encoding/xml"
-	"fmt"
+	// "fmt"
 	"github.com/criusmq/woodstock/graph"
 	"io"
 	"strconv"
@@ -62,21 +62,21 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 }
 
 // Shall convert the Snoopy structure S to a new graph
-func (S Snoopy) Graph() *graph.SimpleGraph {
-	g := graph.NewSimpleGraph()
+func (S Snoopy) Graph(g *graph.SimpleGraph) {
 
 	// Simple Map since node ids are gonna change
-	nodes := map[int]*graph.SimpleGraphNode{}
+	nodes := map[int]graph.Vertex{}
 
 	// for each node create a node
 	for _, nc := range S.NodeClasses {
 		for _, n := range nc.Nodes {
-			node := g.AddNode()
+			node := g.AddVertex()
 			nodes[n.Id] = node
       
-      node.Attributes["type"] = nc.Name 
+      attr := node.Attributes()
+      attr["type"] = nc.Name 
 
-			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
+//			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
 		}
 	}
 
@@ -98,12 +98,10 @@ func (S Snoopy) Graph() *graph.SimpleGraph {
 			// Add the edge to the graph
 			edge := g.AddEdge(nodes[e.Source], nodes[e.Target])
       
-      edge.Attributes["multiplicity"] = strconv.Itoa(multiplicity)
-      edge.Attributes["type"] = ec.Name 
+      attr := edge.Attributes()
+      attr["multiplicity"] = strconv.Itoa(multiplicity)
+      attr["type"] = ec.Name 
 			
-      fmt.Printf("Edge = %v\n", edge)
-
 		}
 	}
-	return g
 }

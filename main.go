@@ -1,21 +1,52 @@
 package main
 
 import (
-	// "github.com/criusmq/woodstock/graph"
-	// "github.com/criusmq/woodstock/mutator"
-	// "github.com/gorilla/websocket"
-	// "github.com/gorilla/mux"
-
-	// "github.com/codegangsta/negroni" - not sure this is needed but there are
-	// some usefull stuff like static file serving
-
-	// "html"
-	// "net/http"
-	// "time"
+	"bufio"
+	"flag"
 	"fmt"
+	/* "github.com/codegangsta/negroni" */
+	"encoding/json"
+	"github.com/criusmq/woodstock/graph"
+	"github.com/criusmq/woodstock/importer"
+	"log"
+	/* "net/http" */
+	"os"
 )
 
-func main() {
+var inputFile = flag.String("infile", "simple.spept", "Input file path")
 
-	fmt.Println("Hello")
+func main() {
+	flag.Parse()
+
+	fi, err := os.Open(*inputFile)
+
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	// close fi on exit and check for its returned error
+	defer func() {
+		if err := fi.Close(); err != nil {
+			panic(err)
+		}
+	}()
+
+	r := bufio.NewReader(fi)
+
+	v := importer.ImportPetriNet(r)
+	g := graph.NewSimpleGraph()
+	v.Graph(g)
+
+	s, err := json.MarshalIndent(g, "", " ")
+	fmt.Printf("Thegraph \n ========\n%s\n%v", s, err)
+
+	/* mux := http.NewServeMux() */
+	/* mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) { */
+	/* 	fmt.Fprintf(w, "Welcome to the home page!") */
+	/* }) */
+
+	/* n := negroni.Classic() */
+
+	/* n.UseHandler(mux) */
+	/* n.Run(":3000") */
 }

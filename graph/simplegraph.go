@@ -1,47 +1,69 @@
 package graph
 
-// SimpleGraphNode is the node structure that is stored in SimpleGraph. It also
-// stores the different edges which are connected to it.
-type SimpleGraphNode struct {
-	id int
-
-	Edges map[int]*SimpleGraphEdge
-
-	Attributes map[string]string
+// SimpleGraphVertex is the vertex structure that is stored in SimpleGraph. It also
+// link to the different edges which are connected to it.
+type SimpleGraphVertex struct {
+	id         int
+	edges      map[int]*SimpleGraphEdge
+	attributes map[string]interface{}
 }
 
-func NewSimpleGraphNode() *SimpleGraphNode {
-	return &SimpleGraphNode{Edges: map[int]*SimpleGraphEdge{},
-		Attributes: map[string]string{}}
+func (v SimpleGraphVertex) Id() int { return v.id }
+
+func (v SimpleGraphVertex) Edges() map[int]Edge {
+	// Cast isn't automatic in go for memory layouting so lets copy in a new map
+	// this may not be the optimal way for nodes with lots of edges
+	edges := make(map[int]Edge, len(v.edges))
+
+	for key, value := range v.edges {
+		edges[key] = value
+	}
+	return edges
 }
 
-func (n SimpleGraphNode) Id() int {
-	return n.id
+func (v SimpleGraphVertex) Attributes() map[string]interface{} {
+	return v.attributes
 }
 
-// SimpleGraphEdge is the edge structure thats is stored in SimpleGraph and that
-// is stores Nodes connected to it in a list
+func newSimpleGraphVertex() *SimpleGraphVertex {
+	return &SimpleGraphVertex{
+		edges:      map[int]*SimpleGraphEdge{},
+		attributes: map[string]interface{}{}}
+}
+
+// SimpleGraphEdge is the edge structure 
 type SimpleGraphEdge struct {
-	id int
-	// First one is the input Node and second one is the output Node
-	Nodes      []*SimpleGraphNode
-	Attributes map[string]string
-}
-
-func NewSimpleGraphEdge() *SimpleGraphEdge {
-	return &SimpleGraphEdge{Nodes: []*SimpleGraphNode{},
-		Attributes: map[string]string{}}
+	id         int
+	vertices   []*SimpleGraphVertex
+	attributes map[string]interface{}
 }
 
 func (e SimpleGraphEdge) Id() int {
 	return e.id
 }
+func (e SimpleGraphEdge) Vertices() []Vertex {
+	vertices := make([]Vertex, len(e.vertices))
 
-// SimpleGraph is the implementation of a simple adjacency list graph that
-// where links are stored in a list and that you can get nodes from edges
+	for key, value := range e.vertices {
+		vertices[key] = value
+	}
+
+	return vertices
+}
+
+func (e SimpleGraphEdge) Attributes() map[string]interface{} {
+	return e.attributes
+}
+
+func newSimpleGraphEdge() *SimpleGraphEdge {
+	return &SimpleGraphEdge{
+		vertices:   []*SimpleGraphVertex{},
+		attributes: map[string]interface{}{}}
+}
+
 type SimpleGraph struct {
-	nodes map[int]*SimpleGraphNode
-	edges map[int]*SimpleGraphEdge
+	vertices map[int]Vertex
+	edges    map[int]Edge
 
 	lastEdgeID int
 	lastNodeID int
@@ -51,70 +73,81 @@ func NewSimpleGraph() *SimpleGraph {
 	return &SimpleGraph{
 		lastEdgeID: -1,
 		lastNodeID: -1,
-		nodes:      map[int]*SimpleGraphNode{},
-		edges:      map[int]*SimpleGraphEdge{}}
+		vertices:   map[int]Vertex{},
+		edges:      map[int]Edge{}}
 }
 
-func (g SimpleGraph) Edge(id int) *SimpleGraphEdge {
-  return g.edges[id]
+func (g SimpleGraph) Vertices() map[int]Vertex {
+	// Cast isn't automatic in go for memory layouting so lets copy in a new map
+	// this may not be the optimal way for nodes with lots of edges
+	vertices := make(map[int]Vertex, len(g.vertices))
+
+	for key, value := range g.vertices {
+		vertices[key] = value
+	}
+	return vertices
 }
-func (g SimpleGraph) Node(id int) *SimpleGraphNode {
-  return g.nodes[id]
+
+func (g SimpleGraph) Edges() map[int]Edge {
+	// Cast isn't automatic in go for memory layouting so lets copy in a new map
+	// this may not be the optimal way for nodes with lots of edges
+	edges := make(map[int]Edge, len(g.edges))
+
+	for key, value := range g.edges {
+		edges[key] = value
+	}
+	return edges
 }
 
-// AddNode adds a node to the SimpleGraph and returns it
-func (g *SimpleGraph) AddNode() *SimpleGraphNode {
-	n := NewSimpleGraphNode()
+// AddVertex adds a node to the SimpleGraph and returns it
+func (g *SimpleGraph) AddVertex() Vertex {
+	v := *newSimpleGraphVertex()
 
-	id := g.lastNodeID + 1
-	g.lastNodeID = id
-	n.id = id
+	g.lastNodeID = g.lastNodeID + 1
+	v.id = g.lastNodeID
 
-	g.nodes[id] = n
-	return n
+	g.vertices[g.lastNodeID] = v
+	return v
 }
 
 // AddEdge adds an edge to the SimpleGraph connected to fromNode and toNode
-func (g *SimpleGraph) AddEdge(fromNode *SimpleGraphNode,
-	toNode *SimpleGraphNode) *SimpleGraphEdge {
+func (g *SimpleGraph) AddEdge(fromVertex Vertex, toVertex Vertex) Edge {
+	e := *newSimpleGraphEdge()
 
-	id := g.lastEdgeID + 1
-	g.lastEdgeID = id
+	g.lastEdgeID = g.lastEdgeID + 1
+	e.id = g.lastEdgeID
 
-	e := NewSimpleGraphEdge()
-	e.id = id
-	e.Nodes = append(e.Nodes, fromNode)
-	e.Nodes = append(e.Nodes, toNode)
+	fromSimpleVertex := fromVertex.(SimpleGraphVertex) 
+	toSimpleVertex := toVertex.(SimpleGraphVertex)
 
-	fromNode.Edges[id] = e
-	toNode.Edges[id] = e
+	e.vertices = append(e.vertices, &fromSimpleVertex)
+	e.vertices = append(e.vertices, &toSimpleVertex)
 
-	g.edges[id] = e
+	g.edges[g.lastEdgeID] = e
 	return e
 }
 
-// RemoveNode removes n from SimpleGraph, if there are edges connected to that
-// node they are also destroyed
-func (g *SimpleGraph) RemoveNode(n *SimpleGraphNode) (err error) {
+// RemoveVertex removes Vertex v from SimpleGraph, if there are edges connected
+// to that node they are also destroyed
+func (g *SimpleGraph) RemoveVertex(v Vertex) {
+	delete(g.Vertices(), v.Id())
 
-	delete(g.nodes, n.id)
-
-	for _, e := range n.Edges {
+	for _, e := range v.Edges() {
 		g.RemoveEdge(e)
 	}
 
-	return nil
 }
 
 // RemoveEdge removes the edge e from the SimpleGraph and deletes the link to it
 // from the nodes it connects together
-func (g *SimpleGraph) RemoveEdge(e *SimpleGraphEdge) (err error) {
+func (g *SimpleGraph) RemoveEdge(e Edge) {
+	delete(g.edges, e.Id())
 
-	delete(g.edges, e.id)
-
-	for _, n := range e.Nodes {
-		delete(n.Edges, e.id)
+	for _, n := range e.Vertices() {
+		delete(n.Edges(), e.Id())
 	}
-
-	return nil
 }
+
+var _ Vertex = SimpleGraphVertex{}
+var _ Edge = SimpleGraphEdge{}
+var _ Graph = SimpleGraph{}
