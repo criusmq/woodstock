@@ -7,12 +7,12 @@ import (
 
 type jsonVertex struct {
 	Id         int                    `json:"id"`
-	Edges      []string               `json:"edges"`
+	Edges      []int               `json:"edges"`
 	Attributes map[string]interface{} `json:"attributes"`
 }
 type jsonEdge struct {
 	Id         int                    `json:"id"`
-	Vertices   []string               `json:"vertices"`
+	Vertices   []int               `json:"vertices"`
 	Attributes map[string]interface{} `json:"attributes"`
 }
 
@@ -27,10 +27,10 @@ func newJsonVertex(v SimpleGraphVertex) *jsonVertex {
 		Attributes: v.Attributes()}
 
 	edges := v.Edges()
-	jv.Edges = make([]string, 0, len(edges))
+	jv.Edges = make([]int, 0, len(edges))
 
 	for _, edge := range v.edges {
-		jv.Edges = append(jv.Edges, strconv.Itoa(edge.Id()))
+		jv.Edges = append(jv.Edges, edge.Id())
 	}
 
 	return jv
@@ -38,11 +38,12 @@ func newJsonVertex(v SimpleGraphVertex) *jsonVertex {
 
 func newJsonEdge(e SimpleGraphEdge) *jsonEdge {
 	je := &jsonEdge{Id: e.Id(), Attributes: e.Attributes()}
+  
+  vertices := e.Vertices()
+	je.Vertices = make([]int, 0, len(vertices))
 
-	je.Vertices = []string{}
-
-	for _, vertex := range e.Vertices() {
-		je.Vertices = append(je.Vertices, strconv.Itoa(vertex.Id()))
+	for _, vertex := range vertices {
+		je.Vertices = append(je.Vertices, vertex.Id())
 	}
 	return je
 }

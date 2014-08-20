@@ -35,6 +35,8 @@ func main() {
 	r := bufio.NewReader(fi)
 
 	v := importer.ImportPetriNet(r)
+  a := v.NodeClasses[0]
+  fmt.Printf("%+v\n",a.Nodes[0])
 	g := graph.NewSimpleGraph()
 	// graph is now generated
 	v.Graph(g)
