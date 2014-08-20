@@ -48,9 +48,19 @@ type Edge struct {
 	Attributes []Attribute `xml:"attribute"`
 }
 type Attribute struct {
-	Id      int    `xml:"id,attr"`
-	Name    string `xml:"name,attr"`
-	Content string `xml:",chardata"`
+	Id       int     `xml:"id,attr"`
+	Name     string  `xml:"name,attr"`
+	Content  string  `xml:",chardata"`
+	Graphics Graphic `xml:"graphics>graphic"`
+}
+type Graphic struct {
+	Id   int     `xml:"id,attr"`
+	Net  int     `xml:"net,attr"`
+	Show int     `xml:"show,attr"`
+	Yoff float64 `xml:"yoff,attr"`
+	Xoff float64 `xml:"xoff,attr"`
+	X    float64 `xml:"x,attr"`
+	Y    float64 `xml:"y,attr"`
 }
 
 // ImportPetriNet imports a snoopy spept  file into a usable structure in woodstock
@@ -72,11 +82,11 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
 		for _, n := range nc.Nodes {
 			node := g.AddVertex()
 			nodes[n.Id] = node
-      
-      attr := node.Attributes()
-      attr["type"] = nc.Name 
 
-//			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
+			attr := node.Attributes()
+			attr["type"] = nc.Name
+
+			//			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
 		}
 	}
 
@@ -97,11 +107,11 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
 			}
 			// Add the edge to the graph
 			edge := g.AddEdge(nodes[e.Source], nodes[e.Target])
-      
-      attr := edge.Attributes()
-      attr["multiplicity"] = strconv.Itoa(multiplicity)
-      attr["type"] = ec.Name 
-			
+
+			attr := edge.Attributes()
+			attr["multiplicity"] = strconv.Itoa(multiplicity)
+			attr["type"] = ec.Name
+
 		}
 	}
 }
