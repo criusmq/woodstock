@@ -24,17 +24,27 @@ var i=0
 var showGraph = function(graphData){
   _(graphData.vertices).each(function(vertex){
     if(vertex.attributes!==undefined && vertex.attributes.type!==undefined){
+      
       switch (vertex.attributes.type){
         case "Place":
-        s.circle(100+i*70,100+i*70,50).attr({
-    fill: "#bada55",
-    stroke: "#000",
-    strokeWidth: 5
-});
+          var c = s.circle(vertex.attributes.graphics.X-vertex.attributes.graphics.Xoff+10,
+                           vertex.attributes.graphics.Y-vertex.attributes.graphics.Yoff+10,10);
+         c.attr({
+           fill: "#bada55",
+           stroke: "#000",
+           strokeWidth: 5
+         });
         break;
         case "Transition":
-          console.log(vertex)
-        s.rect(50+i*70,50+i*70,100,100)
+        var r = s.rect(vertex.attributes.graphics.X-vertex.attributes.graphics.Xoff,
+                         vertex.attributes.graphics.Y-vertex.attributes.graphics.Yoff,
+                         20,20);
+         r.attr({
+           fill: "#55daba",
+           stroke: "#000",
+           strokeWidth: 1
+         });
+
         break;
       }
     }

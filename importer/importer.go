@@ -2,7 +2,6 @@ package importer
 
 import (
 	"encoding/xml"
-	// "fmt"
 	"github.com/criusmq/woodstock/graph"
 	"io"
 	"strconv"
@@ -85,7 +84,9 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
 
 			attr := node.Attributes()
 			attr["type"] = nc.Name
-
+      if(len(n.Attributes)!=0){
+      attr["graphics"] = n.Attributes[0].Graphics 
+    }
 			//			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
 		}
 	}
