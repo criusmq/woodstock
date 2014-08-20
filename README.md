@@ -14,7 +14,7 @@ extended to other fields.
 ## Building (for development purposes)
 
 You need to have go installed. Go to http://golang.org/ for the installation
-package and instructions.
+package and [instructions](http://golang.org/doc/install).
 
     # set your GOPATH to the directory of your choice 
     # (you can have multiple like $PATH)
