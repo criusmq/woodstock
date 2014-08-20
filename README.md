@@ -1,28 +1,41 @@
 # Woodstock
 
 ![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
-_Neuron from [flickr](https://flic.kr/p/5giagf) shared under [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
+_Neuron from [flickr](https://flic.kr/p/5giagf) shared under 
+[cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 
 [![Build Status](https://drone.io/github.com/criusmq/woodstock/status.png)](https://drone.io/github.com/criusmq/woodstock/latest)
 [![GoDoc](https://godoc.org/github.com/criusmq/woodstock?status.png)](http://godoc.org/github.com/criusmq/woodstock)
 
-`Woodstock` a suite of tools used to show and analyse mathematical models of biological processes modeled from (petri nets), this could easily be extended to other fields.
+`Woodstock` a suite of tools used to show and analyse mathematical models of 
+biological processes modeled from (petri nets), this tool could easily be
+extended to other fields.
 
-## Building
+## Building (for development purposes)
 
-    # you need go from http://golang.org
+You need to have go installed. Go to http://golang.org/ for the installation
+package and instructions.
+
+    # set your GOPATH to the directory of your choice 
+    # (you can have multiple like $PATH)
+    mkdir "/$HOME/go"    
+    export GOPATH="/$HOME/go"    
+    
+    # get the code
     go get github.com/criusmq/woodstock
-
     go build github.com/criusmq/woodstock
-
+    
 ## Contributing
 
-1. Check if there is an existing [issue](https://github.com/criusmq/woodstock/issues) about the same subject.
+1. Check if there is an existing 
+    [issue](https://github.com/criusmq/woodstock/issues) about the same subject.
 2. [Create one](https://github.com/criusmq/woodstock/issues/new) if not.
-3. Share your patch (as a [pull request](https://github.com/criusmq/woodstock/pulls) preferably).
+3. Share your patch (as a 
+    [pull request](https://github.com/criusmq/woodstock/pulls) preferably).
 
 ## Contributors
-See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors) for full list of contributors.
+See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors)
+for full list of contributors.
 
 ## License
 
