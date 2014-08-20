@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	/* "github.com/codegangsta/negroni" */
+	"github.com/codegangsta/negroni"
 	"encoding/json"
 	"github.com/criusmq/woodstock/graph"
 	"github.com/criusmq/woodstock/importer"
+  "github.com/gorilla/mux"
 	"log"
-	/* "net/http" */
+	"net/http"
 	"os"
 )
 
@@ -35,18 +36,19 @@ func main() {
 
 	v := importer.ImportPetriNet(r)
 	g := graph.NewSimpleGraph()
-	v.Graph(g)
+	
+  // graph is now generated
+  v.Graph(g)
 
-	s, err := json.MarshalIndent(g, "", " ")
-	fmt.Printf("Thegraph \n ========\n%s\n%v", s, err)
+	s, err := json.MarshalIndent(g, "", "\t")
+  
+	router := mux.NewRouter()
+  router.HandleFunc("/graph.json",func(w http.ResponseWriter, req *http.Request) {
+		fmt.Fprintf(w, "%s",s)
+	})
 
-	/* mux := http.NewServeMux() */
-	/* mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) { */
-	/* 	fmt.Fprintf(w, "Welcome to the home page!") */
-	/* }) */
+	n := negroni.Classic()
 
-	/* n := negroni.Classic() */
-
-	/* n.UseHandler(mux) */
-	/* n.Run(":3000") */
+	n.UseHandler(router)
+	n.Run(":3000")
 }

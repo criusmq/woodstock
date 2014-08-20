@@ -65,7 +65,7 @@ func ImportPetriNet(r io.Reader) *Snoopy {
 func (S Snoopy) Graph(g *graph.SimpleGraph) {
 
 	// Simple Map since node ids are gonna change
-	nodes := map[int]graph.Vertex{}
+	nodes := map[int]*graph.SimpleGraphVertex{}
 
 	// for each node create a node
 	for _, nc := range S.NodeClasses {

@@ -21,7 +21,7 @@ type jsonGraph struct {
 	Edges    map[string]*jsonEdge   `json:"edges"`
 }
 
-func newJsonVertex(v Vertex) *jsonVertex {
+func newJsonVertex(v SimpleGraphVertex) *jsonVertex {
 	jv := &jsonVertex{
 		Id:         v.Id(),
 		Attributes: v.Attributes()}
@@ -35,7 +35,7 @@ func newJsonVertex(v Vertex) *jsonVertex {
 	return jv
 }
 
-func newJsonEdge(e Edge) *jsonEdge {
+func newJsonEdge(e SimpleGraphEdge) *jsonEdge {
 	je := &jsonEdge{Id: e.Id(), Attributes: e.Attributes()}
 
 	je.Vertices = []string{}
@@ -46,17 +46,17 @@ func newJsonEdge(e Edge) *jsonEdge {
 	return je
 }
 
-func newJsonGraph(g Graph) *jsonGraph {
+func newJsonGraph(g SimpleGraph) *jsonGraph {
 	jg := &jsonGraph{
 		Vertices: map[string]*jsonVertex{},
 		Edges:    map[string]*jsonEdge{},
 	}
 
 	for key, vertex := range g.Vertices() {
-		jg.Vertices[strconv.Itoa(key)] = newJsonVertex(vertex)
+		jg.Vertices[strconv.Itoa(key)] = newJsonVertex(*vertex)
 	}
 	for key, edge := range g.Edges() {
-		jg.Edges[strconv.Itoa(key)] = newJsonEdge(edge)
+		jg.Edges[strconv.Itoa(key)] = newJsonEdge(*edge)
 	}
 	return jg
 }

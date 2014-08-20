@@ -33,14 +33,11 @@ func main() {
 	v := importer.ImportPetriNet(r)
 	g := graph.NewSimpleGraph()
 	v.Graph(g)
-fmt.Println("%v",v)
-fmt.Println("%v",g)
-
-b, err := json.Marshal(g)
-if err != nil {
-    fmt.Println("error:", err)
-}
-os.Stdout.Write(b)
+  b, err := json.Marshal(g)
+  if err != nil {
+      fmt.Println("error:", err)
+  }
+  os.Stdout.Write(b)
 
 
   fmt.Printf("done.....................")
