@@ -8,31 +8,31 @@ type SimpleGraphVertex struct {
 	attributes map[string]interface{}
 }
 
-func (v SimpleGraphVertex) Id() int { return v.id }
-func (v SimpleGraphVertex) Edges() map[int]*SimpleGraphEdge { return v.edges }
+func (v SimpleGraphVertex) Id() int                            { return v.id }
+func (v SimpleGraphVertex) Edges() map[int]*SimpleGraphEdge    { return v.edges }
 func (v SimpleGraphVertex) Attributes() map[string]interface{} { return v.attributes }
 
 func newSimpleGraphVertex() *SimpleGraphVertex {
 	return &SimpleGraphVertex{
-    id: -1,
+		id:         -1,
 		edges:      map[int]*SimpleGraphEdge{},
 		attributes: map[string]interface{}{}}
 }
 
-// SimpleGraphEdge is the edge structure 
+// SimpleGraphEdge is the edge structure
 type SimpleGraphEdge struct {
 	id         int
 	vertices   []*SimpleGraphVertex
 	attributes map[string]interface{}
 }
 
-func (e SimpleGraphEdge) Id() int {	return e.id }
-func (e SimpleGraphEdge) Vertices() []*SimpleGraphVertex { return e.vertices }
+func (e SimpleGraphEdge) Id() int                            { return e.id }
+func (e SimpleGraphEdge) Vertices() []*SimpleGraphVertex     { return e.vertices }
 func (e SimpleGraphEdge) Attributes() map[string]interface{} { return e.attributes }
 
 func newSimpleGraphEdge() *SimpleGraphEdge {
 	return &SimpleGraphEdge{
-    id: -1,
+		id:         -1,
 		vertices:   []*SimpleGraphVertex{},
 		attributes: map[string]interface{}{}}
 }
@@ -54,12 +54,11 @@ func NewSimpleGraph() *SimpleGraph {
 }
 
 func (g SimpleGraph) Vertices() map[int]*SimpleGraphVertex { return g.vertices }
-func (g SimpleGraph) Edges() map[int]*SimpleGraphEdge { return g.edges }
-
+func (g SimpleGraph) Edges() map[int]*SimpleGraphEdge      { return g.edges }
 
 // AddVertex adds a node to the SimpleGraph and returns it
 func (g *SimpleGraph) AddVertex() *SimpleGraphVertex {
-  v := newSimpleGraphVertex()
+	v := newSimpleGraphVertex()
 
 	g.lastNodeID = g.lastNodeID + 1
 	v.id = g.lastNodeID
@@ -74,9 +73,15 @@ func (g *SimpleGraph) AddEdge(fromVertex *SimpleGraphVertex, toVertex *SimpleGra
 
 	g.lastEdgeID = g.lastEdgeID + 1
 	e.id = g.lastEdgeID
-  
+
 	e.vertices = append(e.vertices, fromVertex)
 	e.vertices = append(e.vertices, toVertex)
+
+	fEdges := fromVertex.Edges()
+	tEdges := toVertex.Edges()
+
+	fEdges[e.id] = e
+	tEdges[e.id] = e
 
 	g.edges[g.lastEdgeID] = e
 	return e

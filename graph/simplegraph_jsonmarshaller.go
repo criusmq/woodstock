@@ -7,7 +7,7 @@ import (
 
 type jsonVertex struct {
 	Id         int                    `json:"id"`
-	Edges      map[string]string      `json:"edges"`
+	Edges      []string               `json:"edges"`
 	Attributes map[string]interface{} `json:"attributes"`
 }
 type jsonEdge struct {
@@ -26,10 +26,11 @@ func newJsonVertex(v SimpleGraphVertex) *jsonVertex {
 		Id:         v.Id(),
 		Attributes: v.Attributes()}
 
-	jv.Edges = map[string]string{}
+	edges := v.Edges()
+	jv.Edges = make([]string, 0, len(edges))
 
-	for key, edge := range v.Edges() {
-		jv.Edges[strconv.Itoa(key)] = strconv.Itoa(edge.Id())
+	for _, edge := range v.edges {
+		jv.Edges = append(jv.Edges, strconv.Itoa(edge.Id()))
 	}
 
 	return jv
