@@ -1,6 +1,7 @@
 # Woodstock
 
 ![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
+
 _Neuron from [flickr](https://flic.kr/p/5giagf) shared under 
 [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 
