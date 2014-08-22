@@ -37,6 +37,15 @@ package and [instructions](http://golang.org/doc/install).
 See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors)
 for full list of contributors.
 
+## Some Go Help
+
+For go starters, here are some helpers:
+
+- [https://gobyexample.com/](gobyexample.com)
+- [http://godoc.org/](godoc.org)
+- [http://golang.org/](golang.org)
+- #golang-nuts on irc.freenode.org
+
 ## License
 
 Not yet tought about it, so for now: [wtfpl](http://www.wtfpl.net/).
