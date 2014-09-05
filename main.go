@@ -38,9 +38,6 @@ func main() {
 	g := graph.NewSimpleGraph()
 	// graph is now generated
 	v.Graph(g)
-  for _,vertex := range g.Vertices(){
-  fmt.Printf("%#v\n",vertex.Attributes())
-}
 	s, err := json.MarshalIndent(g, "", "\t")
 
 	router := mux.NewRouter()
