@@ -1,6 +1,7 @@
 # Woodstock
 
 ![Neuron from https://flic.kr/p/5giagf](docs/images/neuron.jpg)
+
 _Neuron from [flickr](https://flic.kr/p/5giagf) shared under 
 [cc by-nc](https://creativecommons.org/licenses/by-nc/2.0/)_
 
@@ -36,6 +37,15 @@ package and [instructions](http://golang.org/doc/install).
 ## Contributors
 See [contributors page](https://github.com/criusmq/woodstock/graphs/contributors)
 for full list of contributors.
+
+## Some Go Help
+
+For go starters, here are some helpers:
+
+- [https://gobyexample.com/](gobyexample.com)
+- [http://godoc.org/](godoc.org)
+- [http://golang.org/](golang.org)
+- #golang-nuts on irc.freenode.org
 
 ## License
 
