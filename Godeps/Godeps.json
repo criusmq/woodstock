@@ -1,0 +1,18 @@
+{
+	"ImportPath": "github.com/criusmq/woodstock",
+	"GoVersion": "go1.2.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Rev": "46a638d98be2af4fa6de146b5d28a9d9904a3949"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "14f550f51af52180c2eefed15e5fd18d63c0a64a"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "854d482e26505d59549690719cbc009f04042c2e"
+		}
+	]
+}
