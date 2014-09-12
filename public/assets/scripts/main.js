@@ -5,100 +5,125 @@
 
 var globalVars = {}; // variables we want globally accessible can be stored in here
 
-var s = Snap("#graph"),
-    edgeGroup = s.g(),
-    vertexGroup = s.g();
-
-edgeGroup.attr({name:"edgegroup"});
-vertexGroup.attr({name:"vertexgroup"});
+var s = Snap("#graph");
 
 var i=0;
+
+var clearGraph = function(){
+  s.clear()
+}
+
 var showGraph = function(graphData, options){
-_(graphData.vertices).each(function(vertex){
-  if(vertex.attributes!==undefined && vertex.attributes.type!==undefined){
+  var edgeGroup = s.g(),
+      vertexGroup = s.g();
 
-    var graphics = vertex.attributes.graphics,
-        radius = 10,
-        height = 20,
-        width  = 20;
-    switch (vertex.attributes.type){
-      case "Place":
-        var c = s.circle(graphics.X-graphics.Xoff,
-                         graphics.Y-graphics.Yoff,radius);
-       c.attr({
-         fill: "#bada55",
-         stroke: "#000",
-         strokeWidth: 1
-       });
-        vertexGroup.add(c)
-        vertex.shape = c
-      break;
-      case "Transition":
-      var r = s.rect(graphics.X-graphics.Xoff-width/2,
-                     graphics.Y-graphics.Yoff-width/2,
-                       width,height);
-       r.attr({
-         fill: "#55daba",
-         stroke: "#000",
-         strokeWidth: 1
-       });
-        vertexGroup.add(r)
-        vertex.shape =r
-      break;
-    }
-  }
-  i++;
-});
+  edgeGroup.attr({name:"edgegroup"});
+  vertexGroup.attr({name:"vertexgroup"});
   
-_(graphData.edges).each(function(edge){
-  if(edge.attributes!==undefined && edge.attributes.graphics!==undefined){
-    var graphics = edge.attributes.graphics;
-    var pointsList = _.reduce(graphics.Points,function(memo,point){
-      return _.flatten([memo,point.X,point.Y]);
-    },[]);
-    
+  _(graphData.vertices).each(function(vertex){
+    if(vertex.attributes!==undefined && vertex.attributes.type!==undefined){
 
-    var line = s.polyline(pointsList);
-    line.attr({fill:"none",stroke:"#000",
-              strokeWidth:2});
-    
-    switch (edge.attributes.type){
-      case "Edge":
-        line.attr({class:"edge"})
-        break;
-      case "Read Edge":
-        line.attr({class:"read-edge"})
-        break;
-        default:
-        console.log(edge.attributes.type)
+      var graphics = vertex.attributes.graphics,
+      radius = 10,
+      height = 20,
+      width  = 20;
+      switch (vertex.attributes.type){
+        case "Place":
+          var c = s.circle(graphics.X-graphics.Xoff,
+                           graphics.Y-graphics.Yoff,radius);
+                           c.attr({
+                             fill: "#bada55",
+                             stroke: "#000",
+                             strokeWidth: 1
+                           });
+                           vertexGroup.add(c)
+                           vertex.shape = c
+                           break;
+                           case "Transition":
+                             var r = s.rect(graphics.X-graphics.Xoff-width/2,
+                                            graphics.Y-graphics.Yoff-width/2,
+                                            width,height);
+                                            r.attr({
+                                              fill: "#55daba",
+                                              stroke: "#000",
+                                              strokeWidth: 1
+                                            });
+                                            vertexGroup.add(r)
+                                            vertex.shape =r
+                                            break;
+      }
     }
-    edgeGroup.add(line)
-    edge.shape = line
-  }
-});
+    i++;
+  });
+
+  _(graphData.edges).each(function(edge){
+    if(edge.attributes!==undefined && edge.attributes.graphics!==undefined){
+      var graphics = edge.attributes.graphics;
+      var pointsList = _.reduce(graphics.Points,function(memo,point){
+        return _.flatten([memo,point.X,point.Y]);
+      },[]);
+
+
+      var line = s.polyline(pointsList);
+      line.attr({fill:"none",stroke:"#000",
+                strokeWidth:2});
+
+                switch (edge.attributes.type){
+                  case "Edge":
+                    line.attr({class:"edge"})
+                  break;
+                  case "Read Edge":
+                    line.attr({class:"read-edge"})
+                  break;
+                  default:
+                    console.log(edge.attributes.type)
+                }
+                edgeGroup.add(line)
+                edge.shape = line
+    }
+  });
 };
 
-var dataReq = new XMLHttpRequest();
-dataReq.onload = function(){
-var graphData = JSON.parse(this.responseText);
-globalVars.data = graphData;
-showGraph(graphData);
-};
-dataReq.open("get","graph.json",true);
-dataReq.send();
+
+
+function getNewGraph(){
+  var dataReq = new XMLHttpRequest();
+  dataReq.onload = function(){
+    var graphData = JSON.parse(this.responseText);
+    globalVars.data = graphData;
+    clearGraph();
+    showGraph(graphData);
+  };
+  dataReq.open("get","graph.json",true);
+  dataReq.send();
+}
+
+function sendForm(form){
+  var formData = new FormData(form);
+
+  formData.append('secret_token', '1234567890'); // Append extra data before send.
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', form.action, true);
+  xhr.onload = function(e) { getNewGraph() };
+
+  xhr.send(formData);
+
+  return false; // Prevent page from submitting.
+}
+
+window.addEventListener("load",function(){
+  document.getElementById("graphFile").addEventListener('change',function(e){
+    sendForm(document.getElementById("graphForm"))
+  },false);
+
+});
+
+getNewGraph();
 
 var g = document.getElementById("graph");
 SVGNavigator(g);
 
-
 globalVars.graph = s;
 
 window.Woodstock = globalVars;
-
-// var input = document.getElementById("graphUpload")
-
-// input.addEventListener("change",function(){
-//   input.setAttribute("disabled", "true")
-
-// });
-
