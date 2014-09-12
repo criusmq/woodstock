@@ -79,7 +79,6 @@ func uploadHandler(w http.ResponseWriter, req *http.Request){
     
     workGraph = importGraph(file)
     s, err := json.MarshalIndent(workGraph, "", "\t")
-    fmt.Printf("%s", s)
     
 		fmt.Fprintf(w, "File uploaded successfully : ")
 		fmt.Fprintf(w, header.Filename)
