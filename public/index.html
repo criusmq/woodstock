@@ -77,8 +77,7 @@ padding: 20px;
         marker-end:url(#readEdgeMarker)
       }
     </style>
-    <svg id="graph" height="1000px" width="1000px">
-
+    <svg id="markers" height="0" width="0" hidden>
       <defs>
       <marker id="edgeMarker" refX="4.33", refY="2.5" markerWidth="4.33" markerHeight="5" orient="auto" fill="#000">
         <polygon points="0.0,0.0,0.0,5.0,4.33,2.5"/>
@@ -87,6 +86,8 @@ padding: 20px;
        <circle cx="2.5" cy="2.5" r="2.5"/>
       </marker>
       </defs>
+    </svg>
+    <svg id="graph" height="1000px" width="1000px">
     </svg>
     </main>
     <div class="modal"></div>

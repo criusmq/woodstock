@@ -34,6 +34,7 @@ type NodeClass struct {
 type Node struct {
   Id         int         `xml:"id,attr"`
   Attributes []NodeAttribute `xml:"attribute"`
+  Graphics   NodeGraphic    `xml:"graphics>graphic"`
 }
 
 type EdgeClass struct {
@@ -51,14 +52,24 @@ type NodeAttribute struct {
   Id       int     `xml:"id,attr"`
   Name     string  `xml:"name,attr"`
   Content  string  `xml:",chardata"`
-  Graphics NodeGraphic `xml:"graphics>graphic"`
+  Graphics NodeAttributeGraphic `xml:"graphics>graphic"`
 }
 type EdgeAttribute struct {
   Id       int     `xml:"id,attr"`
   Name     string  `xml:"name,attr"`
   Content  string  `xml:",chardata"`
 }
+
 type NodeGraphic struct {
+  Id   int     `xml:"id,attr`
+  X    float64 `xml:"x,attr"`
+  Y    float64 `xml:"y,attr"`
+  W    float64 `xml:"w,attr"`
+  H    float64 `xml:"h,attr"`
+  Net  int     `xml:"net,attr"`
+  Show int     `xml:"show,attr"`
+}
+type NodeAttributeGraphic struct {
   Id   int     `xml:"id,attr"`
   Net  int     `xml:"net,attr"`
   Show int     `xml:"show,attr"`
@@ -100,9 +111,15 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
 
       attr := node.Attributes()
       attr["type"] = nc.Name
-      if(len(n.Attributes)!=0){
-        attr["graphics"] = n.Attributes[0].Graphics 
+      
+      for _, attribute := range n.Attributes{
+        switch attribute.Name{
+        case "Name":
+          attr["name"]=attribute.Content
+          attr["namePosition"] = attribute.Graphics
+        }
       }
+      attr["graphics"] = n.Graphics
       //			fmt.Printf("Node = %p %v\n",g.Node(node.Id()), node)
     }
   }

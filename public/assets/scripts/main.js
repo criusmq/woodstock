@@ -29,28 +29,32 @@ var showGraph = function(graphData, options){
       width  = 20;
       switch (vertex.attributes.type){
         case "Place":
-          var c = s.circle(graphics.X-graphics.Xoff,
-                           graphics.Y-graphics.Yoff,radius);
+          var c = s.circle(graphics.X,
+                           graphics.Y,radius);
                            c.attr({
                              fill: "#bada55",
                              stroke: "#000",
                              strokeWidth: 1
                            });
-                           vertexGroup.add(c)
-                           vertex.shape = c
-                           break;
-                           case "Transition":
-                             var r = s.rect(graphics.X-graphics.Xoff-width/2,
-                                            graphics.Y-graphics.Yoff-width/2,
-                                            width,height);
-                                            r.attr({
-                                              fill: "#55daba",
-                                              stroke: "#000",
-                                              strokeWidth: 1
-                                            });
-                                            vertexGroup.add(r)
-                                            vertex.shape =r
-                                            break;
+          var txt = s.text(vertex.attributes.namePosition.X,
+                           vertex.attributes.namePosition.Y,
+                           vertex.attributes.name)
+             vertexGroup.add(c)
+             vertex.shape = c
+             break;
+
+         case "Transition":
+           var r = s.rect(graphics.X-width/2,
+                          graphics.Y-width/2,
+                          width,height);
+                          r.attr({
+                            fill: "#55daba",
+                            stroke: "#000",
+                            strokeWidth: 1
+                          });
+            vertexGroup.add(r)
+            vertex.shape =r
+            break;
       }
     }
     i++;
