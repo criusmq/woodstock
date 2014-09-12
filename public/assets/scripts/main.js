@@ -95,5 +95,10 @@ globalVars.graph = s;
 
 window.Woodstock = globalVars;
 
+// var input = document.getElementById("graphUpload")
 
+// input.addEventListener("change",function(){
+//   input.setAttribute("disabled", "true")
+
+// });
 

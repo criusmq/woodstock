@@ -16,6 +16,7 @@ import (
 )
 
 var inputFile = flag.String("infile", "simple.spept", "Input file path")
+var workGraph *graph.SimpleGraph
 
 func importGraph(r io.Reader) *graph.SimpleGraph{
   snoopyGraph := importer.ImportPetriNet(r)
@@ -42,23 +43,31 @@ func main() {
 			panic(err)
 		}
 	}()
-
-
-  var workGraph graph.SimpleGraph
+  
+  // opening and using the default first file
 	r := bufio.NewReader(fi)
-  workGraph = *importGraph(r)
-
+  workGraph = importGraph(r)
 
 	router := mux.NewRouter()
-	router.HandleFunc("/graph.json", func(w http.ResponseWriter, req *http.Request) {
+	router.HandleFunc("/graph.json", graphHandler)
+  router.HandleFunc("/upload",uploadHandler)
+
+	n := negroni.Classic() // negroni classic has static files
+	n.UseHandler(router)
+
+  var port = os.Getenv("PORT")
+  if port == "" { port = "3000" }
+	n.Run(":"+ port)
+}
+
+func graphHandler(w http.ResponseWriter, req *http.Request){
     s, err := json.MarshalIndent(workGraph, "", "\t")
-
-    if err == nil { return }
-		
+    
+    if err != nil { return }
     fmt.Fprintf(w, "%s", s)
-	})
+}
 
-	router.HandleFunc("/upload", func(w http.ResponseWriter, req *http.Request) {
+func uploadHandler(w http.ResponseWriter, req *http.Request){
 		file, header, err := req.FormFile("graph")
 
 		defer file.Close()
@@ -68,18 +77,12 @@ func main() {
 			return
 		}
     
-    workGraph = *importGraph(r)
+    workGraph = importGraph(file)
     s, err := json.MarshalIndent(workGraph, "", "\t")
     fmt.Printf("%s", s)
     
 		fmt.Fprintf(w, "File uploaded successfully : ")
 		fmt.Fprintf(w, header.Filename)
-	})
-
-	n := negroni.Classic()
-
-	n.UseHandler(router)
-  var port = os.Getenv("PORT")
-  if port == "" { port = "3000" }
-	n.Run(":"+ port)
 }
+
+

@@ -44,7 +44,17 @@
     /* Opera */
     -o-filter: blur(6px);
       }
-
+#holder {
+border: 1px solid lightgray;
+min-height: 100px;
+font-size: 20px;
+color: gray;
+text-align: center;
+padding: 20px;
+}
+#holder:hover{
+        background-color:lightgray;
+    }
     </style>
   </head>
   <body>
@@ -56,9 +66,10 @@
     <main>
     <h1>Woodstock</h1>
     <form method="post" action="/upload" enctype="multipart/form-data" >
-      <input type="file" name="graph" size="40" />
+      <input id="graphUpload" type="file" name="graph" size="40" />
       <input type="submit" value="Send"/>
     </form>
+    <!--    <div id="holder">Drop files from desktop here</div> -->
     <style>
       .edge{
         marker-end:url(#edgeMarker)
@@ -83,6 +94,7 @@
     <script src="assets/scripts/snap.svg-min.js"></script>
     <script src="assets/scripts/underscore.js"></script>
     <script src="assets/scripts/svgnavigator.js"></script>
+    <script src="assets/scripts/dropfile.js"></script>
     <script src="assets/scripts/main.js"></script>
   </body>
 </html>
