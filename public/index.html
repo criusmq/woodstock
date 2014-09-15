@@ -16,59 +16,9 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="assets/styles/normalize.css">
-    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/normalize.css">
+    <link rel="stylesheet" href="/assets/styles/main.css">
     
-    <style>
-      .modal-on .modal{
-        width:100%;
-        height:100%;
-        display:block;
-        position:absolute;
-        top:0;
-        left:0;
-        background-color:rgba(20,20,20,0.7)
-      }
-      
-      .modal-on main{
-
-     /* Any browser which supports CSS3 */
-    filter: blur(3px);
-
-    /* Firefox */ 
-    filter: url("blur.svg#gaussian_blur");
-
-    /* Webkit */
-    -webkit-filter: blur(3px);
-
-    /* Opera */
-    -o-filter: blur(6px);
-      }
-#holder {
-border: 1px solid lightgray;
-min-height: 100px;
-font-size: 20px;
-color: gray;
-text-align: center;
-padding: 20px;
-}
-#holder:hover{
-        background-color:lightgray;
-    }
-    </style>
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <main>
-    <h1>Woodstock</h1>
-    <form id="graphForm" method="post" action="/upload" enctype="multipart/form-data" >
-      <input id="graphFile" type="file" name="graph" size="40" />
-    </form>
-    <!--    <div id="holder">Drop files from desktop here</div> -->
     <style>
       .edge{
         marker-end:url(#edgeMarker)
@@ -77,6 +27,20 @@ padding: 20px;
         marker-end:url(#readEdgeMarker)
       }
     </style>
+    
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <main>
+    <div class="col-1-4">
+    <h1>Woodstock</h1>
+    <form id="graphForm" method="post" action="/upload" enctype="multipart/form-data" >
+      <input id="graphFile" type="file" name="graph" size="40" />
+    </form>
+    </div>
+    <div class="col-3-4">
     <svg id="markers" height="0" width="0" hidden>
       <defs>
       <marker id="edgeMarker" refX="4.33", refY="2.5" markerWidth="4.33" markerHeight="5" orient="auto" fill="#000">
@@ -87,8 +51,9 @@ padding: 20px;
       </marker>
       </defs>
     </svg>
-    <svg id="graph" height="1000px" width="1000px">
+    <svg id="graph" height="1000px" width="1000px" viewbox="0 0 1000 1000">
     </svg>
+    </div>
     </main>
     <div class="modal"></div>
     <script src="assets/scripts/snap.svg-min.js"></script>
@@ -97,7 +62,4 @@ padding: 20px;
     <script src="assets/scripts/dropfile.js"></script>
     <script src="assets/scripts/main.js"></script>
   </body>
-</html>
-
-
 </html>
