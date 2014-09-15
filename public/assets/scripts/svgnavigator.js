@@ -37,9 +37,14 @@
     if(!utils.isObject(options)) options={};
     var options = utils.defaults(options,defaults)
 
-    var r = svgElement.getBoundingClientRect()
-    svgElement.setAttribute("viewBox","0 0 "+ r.width+ " " + r.height)
-
+    if(svgElement.getAttribute("viewBox") === null){
+      var r = svgElement.getBoundingClientRect()
+      svgElement.viewBox.baseVal.x =0;
+      svgElement.viewBox.baseVal.y =0;
+      svgElement.viewBox.baseVal.width = r.width;
+      svgElement.viewBox.baseVal.height = r.height;
+    }
+    
     function getSVGEventPoint(evt) {
       var p = svgElement.createSVGPoint();
 
