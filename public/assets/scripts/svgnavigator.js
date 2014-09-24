@@ -32,13 +32,13 @@
 
   function SVGNavigator(svgElement,options){
     var state='none',
-        stateOrigin;
+        stateOrigin,
+        r = svgElement.getBoundingClientRect();
     
     if(!utils.isObject(options)) options={};
     var options = utils.defaults(options,defaults)
 
     if(svgElement.getAttribute("viewBox") === null){
-      var r = svgElement.getBoundingClientRect()
       svgElement.viewBox.baseVal.x =0;
       svgElement.viewBox.baseVal.y =0;
       svgElement.viewBox.baseVal.width = r.width;

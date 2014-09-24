@@ -107,3 +107,7 @@ func (g *SimpleGraph) RemoveEdge(e *SimpleGraphEdge) {
 		delete(n.Edges(), e.Id())
 	}
 }
+
+//var _ Vertex = SimpleGraphVertex{}
+//var _ Edge = SimpleGraphEdge{}
+//var _ Graph = SimpleGraph{}

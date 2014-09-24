@@ -27,22 +27,11 @@
         marker-end:url(#readEdgeMarker)
       }
     </style>
-    
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <main>
-    <div class="col-1-4">
-    <h1>Woodstock</h1>
-    <form id="graphForm" method="post" action="/upload" enctype="multipart/form-data" >
-      <input id="graphFile" type="file" name="graph" size="40" />
-    </form>
-    </div>
-    <div class="col-3-4">
-    <svg id="markers" height="0" width="0" hidden>
+    <svg id="markers" height="0" width="0">
       <defs>
+        <filter id="svg-blur">
+        <feGaussianBlur stdDeviation="2" />
+      </filter>
       <marker id="edgeMarker" refX="4.33", refY="2.5" markerWidth="4.33" markerHeight="5" orient="auto" fill="#000">
         <polygon points="0.0,0.0,0.0,5.0,4.33,2.5"/>
       </marker>
@@ -51,15 +40,67 @@
       </marker>
       </defs>
     </svg>
-    <svg id="graph" height="1000px" width="1000px" viewbox="0 0 1000 1000">
-    </svg>
-    </div>
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <main class="global-container">
+
+    <nav class="woodstock-menu">
+      <form id="graphForm" method="post" action="/upload" enctype="multipart/form-data" >
+      <input id="graphFile" type="file" name="graph" size="40" />
+    </form>
+      <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">What's New</a></li>
+          <li><a href="">Popular</a></li>
+      </ul>
+    </nav>
+    <main class="woodstock-main">
+      <header class="woodstock-head"><div class="woodstock-menu-button"></div><h1 class="woodstock-title">Woodstock</h1></header>
+      <svg id="graph" class="woodstock-graph" height="100%" width="100%" viewbox="0 0 1000 1000"></svg>
+      <footer class="woodstock-foot">Bottom menu bar</footer>
     </main>
-    <div class="modal"></div>
+    </main>
+    
+    <div class="woodstock-modal__container">
+      
+      <div class="woodstock-modal__modal"> Hey!</div> 
+    </div>
+    
+    
+
+    <!-- Scripts Zone - At the bottom non-blocking loading-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="assets/scripts/snap.svg-min.js"></script>
     <script src="assets/scripts/underscore.js"></script>
     <script src="assets/scripts/svgnavigator.js"></script>
     <script src="assets/scripts/dropfile.js"></script>
     <script src="assets/scripts/main.js"></script>
+    <script>
+      jQuery(function(){
+        var menuButton = jQuery(".woodstock-menu-button"),
+            main = jQuery(".woodstock-main"),
+            menu = jQuery(".woodstock-menu");
+        
+        var mainClickInactive = function(e){
+          main.removeClass("inactive");
+          console.log("inactive");
+          main.off("click.inactive");
+          event.stopImmediatePropagation();
+          menuButton.on("click",buttonClick)
+        }
+        var buttonClick = function(e){
+          console.log("buttonclick");
+          jQuery(".woodstock-main").addClass("inactive");
+          event.stopImmediatePropagation();
+          jQuery(".woodstock-main").on("click",mainClickInactive);
+          menuButton.off("click");
+        }
+        
+        menuButton.on("click",buttonClick)
+      });
+    </script>
   </body>
 </html>

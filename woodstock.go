@@ -8,6 +8,7 @@ import (
 	"github.com/codegangsta/negroni"
 	"github.com/criusmq/woodstock/graph"
 	"github.com/criusmq/woodstock/importer"
+    "github.com/criusmq/woodstock/mutator"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -55,6 +56,10 @@ func main() {
 	n := negroni.Classic() // negroni classic has static files
 	n.UseHandler(router)
 
+  
+  var a = mutator.PInvariantMutator{}
+  a.Mutate(workGraph)
+  
   var port = os.Getenv("PORT")
   if port == "" { port = "3000" }
 	n.Run(":"+ port)

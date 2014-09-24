@@ -58,6 +58,7 @@ type EdgeAttribute struct {
   Id       int     `xml:"id,attr"`
   Name     string  `xml:"name,attr"`
   Content  string  `xml:",chardata"`
+  Graphics EdgeAttributeGraphic `xml:"graphics>graphic"`  
 }
 
 type NodeGraphic struct {
@@ -84,6 +85,16 @@ type EdgeGraphic struct {
   Show int     `xml:"show,attr"`
   Points []Point `xml:"points>point"`
 }
+type EdgeAttributeGraphic struct {
+  Id   int     `xml:"id,attr"`
+  Net  int     `xml:"net,attr"`
+  Show int     `xml:"show,attr"`
+  Yoff float64 `xml:"yoff,attr"`
+  Xoff float64 `xml:"xoff,attr"`
+  X    float64 `xml:"x,attr"`
+  Y    float64 `xml:"y,attr"`
+}
+
 type Point struct {
   X float64 `xml:"x,attr"`
   Y float64 `xml:"y,attr"`
@@ -115,7 +126,7 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
       for _, attribute := range n.Attributes{
         switch attribute.Name{
         case "Name":
-          attr["name"]=attribute.Content
+          attr["name"]=strings.Trim(attribute.Content,"\n\r ")
           attr["namePosition"] = attribute.Graphics
         }
       }
@@ -128,24 +139,26 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
   for _, ec := range S.EdgeClasses {
     for _, e := range ec.Edges {
 
-      multiplicity := 0
-      // collect the needed attributes
-      for _, a := range e.Attributes {
-        content := strings.Trim(a.Content, "\n\r ")
-
-        switch a.Name {
-        case "Multiplicity":
-          multiplicity, _ = strconv.Atoi(content)
-        }
-
-      }
       // Add the edge to the graph
       edge := g.AddEdge(nodes[e.Source], nodes[e.Target])
 
       attr := edge.Attributes()
-      attr["multiplicity"] = strconv.Itoa(multiplicity)
-      attr["type"] = ec.Name
 
+      multiplicity := 0
+      // collect the needed attributes
+      for _, attribute := range e.Attributes {
+
+        switch attribute.Name {
+        case "Multiplicity":
+          content := strings.Trim(attribute.Content, "\n\r ")
+          multiplicity, _ = strconv.Atoi(content)
+          attr["multiplicity"] = strconv.Itoa(multiplicity)
+          attr["multiplicityPosition"] = attribute.Graphics
+        }
+
+      }
+
+      attr["type"] = ec.Name
       attr["graphics"] = e.Graphics 
     }
   }
