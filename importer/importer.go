@@ -152,7 +152,7 @@ func (S Snoopy) Graph(g *graph.SimpleGraph) {
         case "Multiplicity":
           content := strings.Trim(attribute.Content, "\n\r ")
           multiplicity, _ = strconv.Atoi(content)
-          attr["multiplicity"] = strconv.Itoa(multiplicity)
+          attr["multiplicity"] = multiplicity
           attr["multiplicityPosition"] = attribute.Graphics
         }
 
