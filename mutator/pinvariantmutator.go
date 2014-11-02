@@ -88,8 +88,11 @@ func (m *PInvariantMutator) Mutate(graph *graph.SimpleGraph) {
 
   // Phase 2
   minimizationOfInvariants(bMatrix)
+  deleteNonMinimalSupportColumns(bMatrix)
   fmt.Printf("b %v\n",bMatrix)
 }
+
+func deleteNonMinimalSupportColumns(bMatrix *SparseMatrix)
 
 func minimizationOfInvariants(bMatrix *SparseMatrix){
 
